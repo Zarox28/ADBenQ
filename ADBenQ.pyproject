@@ -1,0 +1,18 @@
+{
+    "files": [
+        "ui/form.ui",
+        "src/icon.png",
+        "src/ui/media/back.svg",
+        "src/ui/media/down.svg",
+        "src/ui/media/enter.svg",
+        "src/ui/media/left.svg",
+        "src/ui/media/pause-circle.svg",
+        "src/ui/media/right.svg",
+        "src/ui/media/up.svg",
+        "connection.py",
+        "ui/main_window.py",
+        "ui/ui_form.py",
+        "main.py",
+        "common.py"
+    ]
+}
