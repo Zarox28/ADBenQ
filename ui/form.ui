@@ -28,7 +28,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
-    <layout class="QHBoxLayout" name="state_layout">
+    <layout class="QHBoxLayout" name="state_container">
      <item>
       <widget class="QLabel" name="state_text">
        <property name="text">
@@ -37,7 +37,7 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontal_spacer">
        <property name="orientation">
         <enum>Qt::Orientation::Horizontal</enum>
        </property>
@@ -50,7 +50,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="info_text">
+      <widget class="QLabel" name="log_text">
        <property name="text">
         <string/>
        </property>
@@ -93,9 +93,9 @@
         <number>10</number>
        </property>
        <item row="0" column="0">
-        <layout class="QVBoxLayout" name="general_layout">
+        <layout class="QVBoxLayout" name="general_container">
          <item>
-          <layout class="QHBoxLayout" name="header_layout">
+          <layout class="QHBoxLayout" name="header_container">
            <item>
             <widget class="QPushButton" name="scrcpy_button">
              <property name="text">
@@ -177,7 +177,7 @@
           </layout>
          </item>
          <item>
-          <spacer name="verticalSpacer">
+          <spacer name="vertical_spacer">
            <property name="orientation">
             <enum>Qt::Orientation::Vertical</enum>
            </property>
@@ -190,7 +190,7 @@
           </spacer>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="main_layout">
+          <layout class="QHBoxLayout" name="main_container">
            <item>
             <widget class="QGroupBox" name="informations_group">
              <property name="enabled">
@@ -228,7 +228,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="device_screen_text">
+               <widget class="QLabel" name="device_screen_resolution_text">
                 <property name="text">
                  <string>Screen resolution:</string>
                 </property>
@@ -238,7 +238,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_3">
+            <spacer name="horizontal_spacer_4">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
@@ -276,7 +276,7 @@
                </widget>
               </item>
               <item>
-               <spacer name="verticalSpacer_3">
+               <spacer name="vertical_spacer_5">
                 <property name="orientation">
                  <enum>Qt::Orientation::Vertical</enum>
                 </property>
@@ -289,7 +289,7 @@
                </spacer>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="screen_inputs_layout">
+               <layout class="QHBoxLayout" name="screen_inputs_container">
                 <property name="spacing">
                  <number>10</number>
                 </property>
@@ -340,7 +340,7 @@
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="screen_button_layout">
+               <layout class="QHBoxLayout" name="screen_button_container">
                 <property name="spacing">
                  <number>10</number>
                 </property>
@@ -351,7 +351,7 @@
                  <number>0</number>
                 </property>
                 <item>
-                 <spacer name="horizontalSpacer_2">
+                 <spacer name="horizontal_spacer_5">
                   <property name="orientation">
                    <enum>Qt::Orientation::Horizontal</enum>
                   </property>
@@ -364,7 +364,7 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="screen_button">
+                 <widget class="QPushButton" name="set_screen_button">
                   <property name="text">
                    <string>Set</string>
                   </property>
@@ -385,7 +385,7 @@
           </layout>
          </item>
          <item>
-          <spacer name="verticalSpacer_2">
+          <spacer name="vertical_spacer_2">
            <property name="orientation">
             <enum>Qt::Orientation::Vertical</enum>
            </property>
@@ -398,11 +398,11 @@
           </spacer>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="footer_layout">
+          <layout class="QHBoxLayout" name="footer_container">
            <item>
-            <layout class="QVBoxLayout" name="footer_left_layout">
+            <layout class="QVBoxLayout" name="footer_left_container">
              <item>
-              <layout class="QHBoxLayout" name="battery_layout">
+              <layout class="QHBoxLayout" name="battery_container">
                <property name="topMargin">
                 <number>0</number>
                </property>
@@ -426,7 +426,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="battery_button">
+                <widget class="QPushButton" name="set_battery_button">
                  <property name="text">
                   <string>Set</string>
                  </property>
@@ -442,7 +442,7 @@
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="link_layout">
+              <layout class="QHBoxLayout" name="link_container">
                <item>
                 <widget class="QLineEdit" name="link_input">
                  <property name="focusPolicy">
@@ -474,7 +474,7 @@
             </layout>
            </item>
            <item>
-            <spacer name="horizontalSpacer_5">
+            <spacer name="horizontal_spacer_6">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
@@ -487,9 +487,9 @@
             </spacer>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="sliders_layout">
+            <layout class="QVBoxLayout" name="sliders_container">
              <item>
-              <layout class="QVBoxLayout" name="brightness_layout">
+              <layout class="QVBoxLayout" name="brightness_container">
                <item>
                 <widget class="QLabel" name="brightness_label">
                  <property name="text">
@@ -498,7 +498,7 @@
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="brightness_slider_layout">
+                <layout class="QHBoxLayout" name="brightness_slider_container">
                  <item>
                   <widget class="QSlider" name="brightness_slider">
                    <property name="minimumSize">
@@ -519,7 +519,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="brightness_value">
+                  <widget class="QLabel" name="brightness_value_text">
                    <property name="minimumSize">
                     <size>
                      <width>38</width>
@@ -536,7 +536,7 @@
               </layout>
              </item>
              <item>
-              <layout class="QVBoxLayout" name="volume_layout">
+              <layout class="QVBoxLayout" name="volume_container">
                <item>
                 <widget class="QLabel" name="volume_label">
                  <property name="text">
@@ -545,7 +545,7 @@
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="volume_slider_layout">
+                <layout class="QHBoxLayout" name="volume_slider_container">
                  <item>
                   <widget class="QSlider" name="volume_slider">
                    <property name="minimumSize">
@@ -566,7 +566,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="volume_value">
+                  <widget class="QLabel" name="volume_value_text">
                    <property name="minimumSize">
                     <size>
                      <width>38</width>
@@ -599,7 +599,7 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="1">
-        <layout class="QGridLayout" name="buttons_layout">
+        <layout class="QGridLayout" name="buttons_container">
          <item row="1" column="0">
           <widget class="QPushButton" name="left_button">
            <property name="focusPolicy">
@@ -610,10 +610,6 @@
            </property>
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>src/ui/media/left.svg</normaloff>src/ui/media/left.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -637,10 +633,6 @@
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>src/ui/media/right.svg</normaloff>src/ui/media/right.svg</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>32</width>
@@ -663,10 +655,6 @@
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>src/ui/media/enter.svg</normaloff>src/ui/media/enter.svg</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>32</width>
@@ -680,6 +668,9 @@
          </item>
          <item row="0" column="1">
           <widget class="QPushButton" name="up_button">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="palette">
             <palette>
              <active>
@@ -718,7 +709,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>src/ui/media/up.svg</normaloff>src/ui/media/up.svg</iconset>
+             <normaloff>../src/ui/media/up.svg</normaloff>../src/ui/media/up.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -742,10 +733,6 @@
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>src/ui/media/back.svg</normaloff>src/ui/media/back.svg</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>32</width>
@@ -767,10 +754,6 @@
            </property>
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>src/ui/media/down.svg</normaloff>src/ui/media/down.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -794,10 +777,6 @@
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>src/ui/media/pause-circle.svg</normaloff>src/ui/media/pause-circle.svg</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>32</width>
@@ -812,7 +791,7 @@
         </layout>
        </item>
        <item row="1" column="0">
-        <spacer name="horizontalSpacer_6">
+        <spacer name="horizontal_spacer_2">
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
          </property>
@@ -825,7 +804,7 @@
         </spacer>
        </item>
        <item row="0" column="1">
-        <spacer name="verticalSpacer_5">
+        <spacer name="vertical_spacer_3">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
@@ -838,7 +817,7 @@
         </spacer>
        </item>
        <item row="1" column="2">
-        <spacer name="horizontalSpacer_7">
+        <spacer name="horizontal_spacer_3">
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
          </property>
@@ -851,7 +830,7 @@
         </spacer>
        </item>
        <item row="2" column="1">
-        <spacer name="verticalSpacer_6">
+        <spacer name="vertical_spacer_4">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
