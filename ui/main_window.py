@@ -224,7 +224,7 @@ class MainWindow(QWidget):
         """
         Opens the SCRCPY application for the connected device.
         """
-        self.connection.connected_device.device.open_scrcpy(self.connection.device)
+        self.connection.connected_device.open_scrcpy(self.connection.device)
         self.log("Starting SCRCPY...", 1)
 
     def open_settings(self) -> None:
@@ -246,7 +246,7 @@ class MainWindow(QWidget):
             self.log("Please provide a valid link", 0)
             return
 
-        self.connection.connected_device.open_link(link)
+        self.connection.connected_device.open_link(self.connection.device, link)
         self.log("Opening link...", 1)
 
     def connect_to_device(self) -> None:
@@ -300,6 +300,7 @@ class MainWindow(QWidget):
         self.ui.scrcpy_button.clicked.connect(self.open_scrcpy)
         self.ui.refresh_button.clicked.connect(self.refresh)
         self.ui.settings_button.clicked.connect(self.open_settings)
+        self.ui.link_button.clicked.connect(self.open_link)
 
         # Slider connections
         self.ui.volume_slider.valueChanged.connect(self.set_volume)
