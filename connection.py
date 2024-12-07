@@ -31,33 +31,40 @@ class Connection:
         devices = self.server.devices()
 
         if devices:
-            return devices[0].serial
+            return devices[0].get_serial_no()
         else:
             return None
 
-    def connect_device(self) -> bool:
+    def connect_device(self, ip: str = None) -> bool:
         """
         Connects to the device using the IP and port.
+
+        Args:
+            ip (str): The IP address of the device to connect to.
 
         Returns:
             bool: True if the device is successfully connected, False otherwise.
         """
-        device = self.get_connected_device()
+        already_connected_device = self.get_connected_device()
 
-        if device:
-            self.device_ip = device.split(":")[0]
-            self.device_port = int(device.split(":")[1])
-            self.device = self.server.device(f"{self.device_ip}:{self.device_port}")
+        if already_connected_device:
+            self.device_ip = already_connected_device.split(":")[0]
+            self.device_port = int(already_connected_device.split(":")[1])
+        elif ip:
+            self.device_ip = ip
+        else:
+            return False
 
-        self.server.remote_connect(self.device_ip, self.device_port)
+        self.device = self.server.device(f"{self.device_ip}:{self.device_port}")
 
-        if self.server.device(f"{self.device_ip}:{self.device_port}") is not None:
+        if self.server.remote_connect(self.device_ip, self.device_port):
             self.connected = True
+            return True
         else:
             self.connected = False
             return False
 
-        return True
+        return False
 
     def disconnect_device(self) -> None:
         """
