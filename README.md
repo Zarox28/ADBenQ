@@ -14,21 +14,23 @@
 
 ## Table of Contents
 
-- [About](#about)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Authors](#authors)
+- [ℹ️ About](#-about)
+- [📋 Requirements](#-requirements)
+- [🛠️ Installation](#-installation)
+- [🚀 Usage](#-usage)
+- [📚 Documentation](#-documentation)
+  - [🌟 Highlight of the Wiki](#-highlight-of-the-wiki)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [🧑‍💻 Author](#-author)
 
-## About
+## ℹ️ About
 
 Welcome to **ADBenQ**! 🎉
+
 This is a desktop application built using PySide6 (Qt for Python) to control BenQ smart TVs via ADB (Android Debug Bridge).
 
-> **Note**
+> [!NOTE]
 > But hey, let's be real: the true goal of this project is to _learn Qt_ and become a future app developer!
 > 🚀 It’s all about the journey of improving skills while building something fun and practical.
 
@@ -38,18 +40,18 @@ Why **ADBenQ**?
 - 🛠️ Built with PySide6, mixing UI design and functionality.
 - 📚 Detailed documentation to guide you through the app.
 
-## Requirements
+## 📋 Requirements
 
 To run **ADBenQ**, you'll need:
 
-> **Warning**
+> [!WARNING]
 > Make sure ADB and Scrcpy is installed and accessible from your system's PATH!
 
 - Python 3.9 or later.
 - [ADB](https://developer.android.com/tools/adb) installed on your system.
 - [Scrcpy](https://github.com/Genymobile/scrcpy) installed on your system.
 
-## Installation
+## 🛠️ Installation
 
 1. Clone the repository:
 
@@ -70,38 +72,38 @@ To run **ADBenQ**, you'll need:
    python main.py
    ```
 
-## Usage
+## 🚀 Usage
 
 Follow these steps to use ADBenQ:
 
-1. Launch the application by running `python main.py`.
-2. Connect your BenQ TV to the same network as your computer.
-3. Enter the TV's IP address in the app interface.
-4. Explore the control options
-5. Enjoy the power of controlling your TV from your computer! 🚀
+1. 🚀 Launch the application by running `python main.py`.
+2. 📡 Connect your BenQ TV to the same network as your computer.
+3. 🖥️ Enter the TV's IP address in the app interface.
+4. 🎮 Explore the control options.
+5. 🎉 Enjoy the power of controlling your TV from your computer! 🚀
 
 <div align="center">
     <img src=".github/readme/screenshot.png" width="600" />
 </div>
 
-## Documentation 📚
+## 📚 Documentation
 
 Looking for more details about ADBenQ’s features or troubleshooting advice? We've got you covered!
 
-### Highlight of the Wiki:
+### 🌟 Highlight of the Wiki:
 
 - [General tab](https://github.com/Zarox28/ADBenQ/wiki/General-Tab) - Learn how to connect your TV and general purpose of the app. 📺
 
 Check out the [Wiki](https://github.com/Zarox28/ADBenQ/wiki/Home) to make the most out of ADBenQ! 🚀
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Open an issue or create a pull request to share your ideas. 🤝
 
-## License
+## 📜 License
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
-## Author
+## 🧑‍💻 Author
 
 - **[@Zarox28](https://github.com/Zarox28)**
