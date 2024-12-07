@@ -42,7 +42,12 @@ class Screen:
         Returns:
             str: The current screen resolution.
         """
-        return device.shell("wm size").strip().split(":")[1]
+
+        size = device.shell("wm size")
+        if (size.splitlines().__len__() > 1):
+            return size.splitlines()[1].split(":")[1].strip()
+        else:
+            return size.split(":")[1].strip()
 
     def set_resolution(self, device, width: int, height: int) -> None:
         """
