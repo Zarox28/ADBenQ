@@ -25,6 +25,8 @@ class MainWindow(QWidget):
         Refreshes various UI elements by updating battery, volume, brightness, information,
         screen resolution, and display state.
         """
+        self.log("Refreshing...", 1)
+
         self.update_battery()
         self.update_volume()
         self.update_brightness()
@@ -159,12 +161,14 @@ class MainWindow(QWidget):
             return
 
         self.connection.connected_device.screen.set_resolution(self.connection.device, width, height)
+        self.log(f"Screen resolution set to {width}x{height}", 1)
 
     def reset_screen_resolution(self) -> None:
         """
         Resets the screen resolution of the connected device to its default value.
         """
         self.connection.connected_device.screen.reset_resolution(self.connection.device)
+        self.log("Screen resolution reset", 1)
         self.update_screen_resolution()
 
     def set_brightness(self) -> None:
