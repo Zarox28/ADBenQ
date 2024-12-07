@@ -52,20 +52,20 @@ To run **ADBenQ**, you'll need:
 ## Installation
 
 1. Clone the repository:
-   
+
    ```bash
    git clone https://github.com/Zarox28/ADBenQ.git
    cd ADBenQ
    ```
 
 2. Install dependencies:
-   
+
    ```bash
    pip install -r requirements.txt
    ```
 
 3. Run the app:
-   
+
    ```bash
    python main.py
    ```
@@ -90,9 +90,9 @@ Looking for more details about ADBenQ’s features or troubleshooting advice? We
 
 ### Highlight of the Wiki:
 
-- [Features](https://github.com/Zarox28/ADBenQ/wiki/Features) - Discover the app's functionalities and how to use them.
+- [General tab](https://github.com/Zarox28/ADBenQ/wiki/General-Tab) - Learn how to connect your TV and general purpose of the app. 📺
 
-Check out the Wiki to make the most out of ADBenQ! 🚀
+Check out the [Wiki](https://github.com/Zarox28/ADBenQ/wiki/Home) to make the most out of ADBenQ! 🚀
 
 ## Contributing
 
