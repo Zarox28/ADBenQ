@@ -28,7 +28,7 @@
 
 Welcome to **ADBenQ**! 🎉
 
-This is a desktop application built using PySide6 (Qt for Python) to control BenQ smart TVs via ADB (Android Debug Bridge).
+This is a desktop application built using PySide6 (Qt for Python) to control University BenQ smart TVs via ADB (Android Debug Bridge).
 
 > [!NOTE]
 > But hey, let's be real: the true goal of this project is to _learn Qt_ and become a future app developer!
@@ -44,12 +44,12 @@ Why **ADBenQ**?
 
 To run **ADBenQ**, you'll need:
 
-> [!WARNING]
-> Make sure ADB and Scrcpy is installed and accessible from your system's PATH!
-
 - Python 3.9 or later.
 - [ADB](https://developer.android.com/tools/adb) installed on your system.
 - [Scrcpy](https://github.com/Genymobile/scrcpy) installed on your system.
+
+> [!WARNING]
+> Make sure ADB and Scrcpy are accessible from your system's PATH!
 
 ## 🛠️ Installation
 
