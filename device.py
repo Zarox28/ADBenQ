@@ -25,7 +25,7 @@ class Device:
         informations.append(device.shell("settings get global device_name").strip())
         informations.append(device.get_properties().get("ro.product.model"))
         informations.append(device.get_properties().get("ro.product.build.version.release"))
-        informations.append(device.shell("wm size").strip().split(":")[1])
+        informations.append(self.screen.get_resolution(device))
 
         return informations
 

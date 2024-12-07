@@ -162,6 +162,7 @@ class MainWindow(QWidget):
 
         self.connection.connected_device.screen.set_resolution(self.connection.device, width, height)
         self.log(f"Screen resolution set to {width}x{height}", 1)
+        self.update_informations()
 
     def reset_screen_resolution(self) -> None:
         """
@@ -170,6 +171,7 @@ class MainWindow(QWidget):
         self.connection.connected_device.screen.reset_resolution(self.connection.device)
         self.log("Screen resolution reset", 1)
         self.update_screen_resolution()
+        self.update_informations()
 
     def set_brightness(self) -> None:
         """
