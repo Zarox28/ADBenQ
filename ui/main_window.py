@@ -275,9 +275,7 @@ class MainWindow(QWidget):
             self.log("Disconnected from the device.", 1)
 
         else:
-            self.connection.device_ip = ip_address
-
-            if self.connection.connect_device():
+            if self.connection.connect_device(ip_address):
                 self.refresh()
                 self.log(f'Connected to device at IP: {ip_address}', 1)
             else:
