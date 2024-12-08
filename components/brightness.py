@@ -14,7 +14,9 @@ class Brightness:
         Returns:
             The brightness level as an integer.
         """
-        brightness_value = int(device.shell("settings get system screen_brightness").strip()) / 255
+        brightness_value = (
+            int(device.shell("settings get system screen_brightness").strip()) / 255
+        )
         return floor(1 * (1 - brightness_value) + 100 * brightness_value)
 
     def set_level(self, device, level: int) -> None:

@@ -31,7 +31,7 @@ class Connection:
         devices = self.server.devices()
 
         if devices:
-            return devices[0].get_serial_no()
+            return devices[0].serial
         else:
             return None
 
@@ -40,24 +40,32 @@ class Connection:
         Connects to the device using the IP and port.
 
         Args:
-            ip (str): The IP address of the device to connect to.
+            ip (str): The IP address of the device.
 
         Returns:
             bool: True if the device is successfully connected, False otherwise.
         """
-        already_connected_device = self.get_connected_device()
+        if self.device is None:
+            already_connected_device = self.get_connected_device()
 
-        if already_connected_device:
-            self.device_ip = already_connected_device.split(":")[0]
-            self.device_port = int(already_connected_device.split(":")[1])
-        elif ip:
+            if already_connected_device:
+                self.device_ip = already_connected_device.split(":")[0]
+                self.device_port = int(already_connected_device.split(":")[1])
+            else:
+                return False
+
+        elif ip is not None:
             self.device_ip = ip
-        else:
+
+        status = subprocess.run(["adb", "devices"], stdout=subprocess.PIPE, text=True)
+        if any(
+            "offline" in line for line in status.stdout.splitlines()[1:] if line.strip()
+        ):
             return False
 
-        self.device = self.server.device(f"{self.device_ip}:{self.device_port}")
-
-        if self.server.remote_connect(self.device_ip, self.device_port):
+        if self.server.device(f"{self.device_ip}:{self.device_port}") is not None:
+            self.device = self.server.device(f"{self.device_ip}:{self.device_port}")
+            self.server.remote_connect(self.device_ip, self.device_port)
             self.connected = True
             return True
         else:

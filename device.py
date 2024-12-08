@@ -24,7 +24,9 @@ class Device:
 
         informations.append(device.shell("settings get global device_name").strip())
         informations.append(device.get_properties().get("ro.product.model"))
-        informations.append(device.get_properties().get("ro.product.build.version.release"))
+        informations.append(
+            device.get_properties().get("ro.product.build.version.release")
+        )
         informations.append(self.screen.get_resolution(device))
 
         return informations
@@ -36,11 +38,7 @@ class Device:
         Args:
             device: The device object to open scrcpy for.
         """
-        subprocess.run([
-            "scrcpy",
-            "-s",
-            device.get_serial_no()
-        ])
+        subprocess.run(["scrcpy", "-s", device.get_serial_no()])
 
     def open_settings(self, device) -> None:
         """
