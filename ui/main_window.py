@@ -17,7 +17,9 @@ class MainWindow(QWidget):
         :param text: The message to log.
         :param type: The type of message (1 for success, 0 for error).
         """
-        self.ui.log_text.setText(f'<span style="color: {"#00b300" if type == 1 else "#ff2600"}">{text}</span>')
+        self.ui.log_text.setText(
+            f'<span style="color: {"#00b300" if type == 1 else "#ff2600"}">{text}</span>'
+        )
         QTimer.singleShot(2000, lambda: self.ui.log_text.clear())
 
     def refresh(self) -> None:
@@ -59,7 +61,9 @@ class MainWindow(QWidget):
 
         state_color = "#00b300" if is_connected else "#ff2600"
         state_text = "connected" if is_connected else "disconnected"
-        self.ui.state_text.setText(f'State: <span style="color: {state_color};">{state_text}</span>')
+        self.ui.state_text.setText(
+            f'State: <span style="color: {state_color};">{state_text}</span>'
+        )
         self.ui.connect_button.setText("Disconnect" if is_connected else "Connect")
 
         widgets = [
@@ -75,7 +79,7 @@ class MainWindow(QWidget):
             self.ui.set_battery_button,
             self.ui.reset_battery_button,
             self.ui.link_button,
-            self.ui.link_input
+            self.ui.link_input,
         ]
 
         for widget in widgets:
@@ -92,7 +96,9 @@ class MainWindow(QWidget):
         """
         Updates the display state checkbox based on the current display state of the connected device.
         """
-        if self.connection.connected_device.screen.is_display_on(self.connection.device):
+        if self.connection.connected_device.screen.is_display_on(
+            self.connection.device
+        ):
             if self.ui.display_checkbox.checkState().Unchecked:
                 self.ui.display_checkbox.setChecked(True)
         else:
@@ -103,7 +109,9 @@ class MainWindow(QWidget):
         """
         Updates the screen resolution inputs based on the current resolution of the connected device.
         """
-        sizes = self.connection.connected_device.screen.get_resolution(self.connection.device)
+        sizes = self.connection.connected_device.screen.get_resolution(
+            self.connection.device
+        )
 
         self.ui.width_input.setText(sizes.split("x")[0])
         self.ui.height_input.setText(sizes.split("x")[1])
@@ -112,24 +120,36 @@ class MainWindow(QWidget):
         """
         Updates the device information text fields based on the current information of the connected device.
         """
-        informations = self.connection.connected_device.get_informations(self.connection.device)
+        informations = self.connection.connected_device.get_informations(
+            self.connection.device
+        )
 
         self.ui.device_name_text.setText(f"Name: {informations[0]}")
         self.ui.device_model_text.setText(f"Model: {informations[1]}")
         self.ui.device_version_text.setText(f"Android version: {informations[2]}")
-        self.ui.device_screen_resolution_text.setText(f"Screen resolution: {informations[3]}")
+        self.ui.device_screen_resolution_text.setText(
+            f"Screen resolution: {informations[3]}"
+        )
 
     def update_battery(self) -> None:
         """
         Updates the battery input field based on the current battery level of the connected device.
         """
-        self.ui.battery_input.setText(str(self.connection.connected_device.battery.get_level(self.connection.device)))
+        self.ui.battery_input.setText(
+            str(
+                self.connection.connected_device.battery.get_level(
+                    self.connection.device
+                )
+            )
+        )
 
     def update_volume(self) -> None:
         """
         Updates the volume slider and text based on the current volume level of the connected device.
         """
-        volume = self.connection.connected_device.media.get_volume_level(self.connection.device)
+        volume = self.connection.connected_device.media.get_volume_level(
+            self.connection.device
+        )
         self.ui.volume_value_text.setText(f"{str(volume)} %")
         self.ui.volume_slider.setValue(volume)
 
@@ -137,7 +157,9 @@ class MainWindow(QWidget):
         """
         Updates the brightness slider and text based on the current brightness level of the connected device.
         """
-        brightness = self.connection.connected_device.brightness.get_level(self.connection.device)
+        brightness = self.connection.connected_device.brightness.get_level(
+            self.connection.device
+        )
 
         self.ui.brightness_value_text.setText(f"{str(brightness)} %")
         self.ui.brightness_slider.setValue(brightness)
@@ -146,8 +168,13 @@ class MainWindow(QWidget):
         """
         Toggles the display state of the connected device based on the checkbox state.
         """
-        self.connection.connected_device.screen.toggle_display(self.connection.device, self.ui.display_checkbox.isChecked())
-        self.log(f'Turned screen {"ON" if self.ui.display_checkbox.isChecked() else "OFF"}', 1)
+        self.connection.connected_device.screen.toggle_display(
+            self.connection.device, self.ui.display_checkbox.isChecked()
+        )
+        self.log(
+            f'Turned screen {"ON" if self.ui.display_checkbox.isChecked() else "OFF"}',
+            1,
+        )
 
     def set_screen_resolution(self) -> None:
         """
@@ -160,7 +187,9 @@ class MainWindow(QWidget):
             self.log("Please provide valid sizes", 0)
             return
 
-        self.connection.connected_device.screen.set_resolution(self.connection.device, width, height)
+        self.connection.connected_device.screen.set_resolution(
+            self.connection.device, width, height
+        )
         self.log(f"Screen resolution set to {width}x{height}", 1)
         self.update_informations()
 
@@ -179,7 +208,9 @@ class MainWindow(QWidget):
         """
         brightness = self.ui.brightness_slider.value()
 
-        self.connection.connected_device.brightness.set_level(self.connection.device, brightness)
+        self.connection.connected_device.brightness.set_level(
+            self.connection.device, brightness
+        )
         self.ui.brightness_value_text.setText(f"{brightness} %")
 
     def set_volume(self) -> None:
@@ -187,7 +218,9 @@ class MainWindow(QWidget):
         Sets the volume level of the connected device based on the slider value.
         """
         volume = self.ui.volume_slider.value()
-        self.connection.connected_device.media.set_volume_level(self.connection.device, volume)
+        self.connection.connected_device.media.set_volume_level(
+            self.connection.device, volume
+        )
         self.ui.volume_value_text.setText(f"{volume} %")
 
     def set_battery(self) -> None:
@@ -208,7 +241,9 @@ class MainWindow(QWidget):
             self.ui.battery_input.clear()
             return
 
-        self.connection.connected_device.battery.set_level(self.connection.device, battery)
+        self.connection.connected_device.battery.set_level(
+            self.connection.device, battery
+        )
         self.log(f"Battery value set to {battery} %", 1)
 
     def take_screenshot(self) -> None:
@@ -246,7 +281,7 @@ class MainWindow(QWidget):
         """
         link = self.ui.link_input.text()
 
-        link_pattern = re.compile(r'https?://\S+')
+        link_pattern = re.compile(r"https?://\S+")
 
         if not link_pattern.match(link):
             self.log("Please provide a valid link", 0)
@@ -262,7 +297,7 @@ class MainWindow(QWidget):
         ip_address = self.ui.ip_input.text()
 
         ip_pattern = re.compile(
-            r'^(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$'
+            r"^(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$"
         )
 
         if not ip_address or not ip_pattern.match(ip_address):
@@ -277,9 +312,9 @@ class MainWindow(QWidget):
         else:
             if self.connection.connect_device(ip_address):
                 self.refresh()
-                self.log(f'Connected to device at IP: {ip_address}', 1)
+                self.log(f"Connected to device at IP: {ip_address}", 1)
             else:
-                self.log(f'Failed to connect to {ip_address}', 0)
+                self.log(f"Failed to connect to {ip_address}", 0)
 
         self.update_connection_state()
 

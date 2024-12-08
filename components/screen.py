@@ -16,7 +16,9 @@ class Screen:
         Returns:
             bool: True if the display is on, False otherwise.
         """
-        screen_state = device.shell('dumpsys window | grep "mCurrentFocus"').split("=")[1].strip()
+        screen_state = (
+            device.shell('dumpsys window | grep "mCurrentFocus"').split("=")[1].strip()
+        )
         return screen_state != "null"
 
     def toggle_display(self, device, checked: bool) -> None:
@@ -44,7 +46,7 @@ class Screen:
         """
 
         size = device.shell("wm size")
-        if (size.splitlines().__len__() > 1):
+        if size.splitlines().__len__() > 1:
             return size.splitlines()[1].split(":")[1].strip()
         else:
             return size.split(":")[1].strip()
@@ -80,18 +82,20 @@ class Screen:
 
         downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
         current_date_time = datetime.now().strftime("%Y:%m:%d_%H-%M-%S")
-        screenshot_path = os.path.join(downloads_path, f"screen_{current_date_time}.png")
+        screenshot_path = os.path.join(
+            downloads_path, f"screen_{current_date_time}.png"
+        )
 
         with open(screenshot_path, "wb") as f:
             f.write(screenshot)
 
         try:
-            if os.name == 'posix':
-                subprocess.run(['open', screenshot_path], check=True)
-            elif os.name == 'nt':
+            if os.name == "posix":
+                subprocess.run(["open", screenshot_path], check=True)
+            elif os.name == "nt":
                 os.startfile(screenshot_path)
             else:
-                subprocess.run(['xdg-open', screenshot_path], check=True)
+                subprocess.run(["xdg-open", screenshot_path], check=True)
 
         except Exception as e:
             print(f"Could not open the screenshot: {e}")
