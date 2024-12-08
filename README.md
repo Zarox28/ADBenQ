@@ -72,6 +72,15 @@ To run **ADBenQ**, you'll need:
    python main.py
    ```
 
+4. (Optional) Create a standalone executable:
+
+   ```bash
+   chmod +x build.sh
+    ./build.sh
+   ```
+
+   The executable will be located in the `dist` folder.
+
 ## 🚀 Usage
 
 Follow these steps to use ADBenQ:
