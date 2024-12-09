@@ -36,7 +36,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='ADBenQ',
+    name='ADBenQ - v0.1.6-alpha',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
