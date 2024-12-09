@@ -75,6 +75,10 @@ To run **ADBenQ**, you'll need:
 4. (Optional) Create a standalone executable:
 
    ```bash
+   pip install pyinstaller
+   ```
+
+   ```bash
    chmod +x build.sh
     ./build.sh
    ```
