@@ -17,6 +17,9 @@
 - [ℹ️ About](#-about)
 - [📋 Requirements](#-requirements)
 - [🛠️ Installation](#-installation)
+  - [🐍 Using Pip](#-using-pip)
+  - [🍺 Using Homebrew (MacOS)](#-using-homebrew-macos)
+  - [📦 Using PacMan (Arch Linux)](#-using-pacman-arch-linux)
 - [🚀 Usage](#-usage)
 - [📚 Documentation](#-documentation)
   - [🌟 Highlight of the Wiki](#-highlight-of-the-wiki)
@@ -53,6 +56,8 @@ To run **ADBenQ**, you'll need:
 
 ## 🛠️ Installation
 
+### 🐍 Using Pip
+
 1. Clone the repository:
 
    ```bash
@@ -80,6 +85,24 @@ To run **ADBenQ**, you'll need:
    ```
 
    The executable will be located in the `dist` folder.
+
+### 🍺 Using Homebrew (MacOS)
+
+1. Install the app using Homebrew:
+
+   ```bash
+   brew install zarox28/apps/adbenq
+   ```
+
+2. Run the app:
+
+   ```bash
+    adbenq
+   ```
+
+### 📦 Using PacMan (Arch Linux)
+
+TODO
 
 ## 🚀 Usage
 
@@ -113,6 +136,7 @@ Contributions are welcome! Open an issue or create a pull request to share your 
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
-## 🧑‍💻 Author
+## 🧑‍💻 Authors
 
 - **[@Zarox28](https://github.com/Zarox28)**
+- **[@0x4c756e61 (Luna)](https://github.com/0x4c756e61)**
