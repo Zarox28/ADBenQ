@@ -2,8 +2,8 @@ name: Build macOS Executable
 
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
 
 jobs:
   build:
