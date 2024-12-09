@@ -29,9 +29,13 @@ jobs:
           chmod +x build.sh
           ./build.sh
 
+      - name: Move executable
+        run: |
+          mv dist/ADBenQ ADBenQ
+
       - name: Create tarball
         run: |
-          tar -czvf ADbenQ_macos.tar.gz dist/ADBenQ
+          tar -czvf ADbenQ_macos.tar.gz ADBenQ
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
