@@ -1,9 +1,9 @@
-name: Build and Release macOS DMG
+name: Build and Release macOS
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
 
 jobs:
   build:
@@ -29,27 +29,25 @@ jobs:
         run: |
           pyinstaller ADBenQ.spec
 
+      - name: Create tarball
+        run: |
+          tar -czvf ADbenQ_macos.tar.gz dist/ADBenQ
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ADBenQ
-          path: dist/ADBenQ/ADBenQ
+          path: ./ADBenQ_macos.tar.gz
 
   create_release:
     name: Create release
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ADBenQ
-          path: ./dist/ADBenQ
-
       - name: Create draft release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./dist/ADBenQ/ADBenQ
+          files: ./ADBenQ_macos.tar.gz
           tag_name: v${{ github.run_number }}
           name: v${{ github.run_number }}
           draft: true
