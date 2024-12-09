@@ -11,36 +11,48 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    # Checkout the code
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    # Set up Python
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      # Set up Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
 
-    # Install dependencies
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
 
-    # Build the application
-    - name: Build the application
-      run: |
-        ./build.sh
+      # Build the application
+      - name: Build the application
+        run: |
+          ./build.sh
 
-    # Create DMG
-    - name: Create DMG
-      run: |
-        mkdir -p dist/dmg
-        hdiutil create dist/dmg/ADBenQ.dmg -srcfolder dist/macos/ADBenQ -ov -format UDZO
+      # Create DMG
+      - name: Create DMG
+        run: |
+          mkdir -p dist/dmg
+          hdiutil create dist/dmg/ADBenQ.dmg -srcfolder dist/macos/ADBenQ -ov -format UDZO
 
-    # Upload DMG as an artifact
-    - name: Upload DMG
-      uses: actions/upload-artifact@v3
-      with:
-        name: ADBenQ.dmg
-        path: dist/dmg/ADBenQ.dmg
+      # Upload DMG as an artifact
+      - name: Upload DMG
+        uses: actions/upload-artifact@v3
+        with:
+          name: ADBenQ.dmg
+          path: dist/dmg/ADBenQ.dmg
+
+      # Add the DMG to the latest release
+      - name: Add DMG to the latest release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/dmg/ADBenQ.dmg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release_name: ${{ github.event.head_commit.message }}
+          release_body: ${{ github.event.head_commit.message }}
+          tag: latest
+          overwrite: true
