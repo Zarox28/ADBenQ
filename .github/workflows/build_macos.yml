@@ -24,13 +24,13 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
-      - name: Build macOS Executable with PyInstaller
+      - name: Build macOS executable with PyInstaller
         run: |
           chmod +x build.sh
           ./build.sh
         shell: bash
 
-      - name: Verify Build Artifacts
+      - name: Verify build artifacts
         run: |
           if [ ! -f "dist/macos/ADBenQ/ADBenQ" ]; then
             echo "Build failed: Executable not found!"
@@ -42,16 +42,13 @@ jobs:
           mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
           tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
 
-      - name: Get Latest GitHub Release Tag
-        id: get_release_tag
-        run: |
-          latest_release=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)
-          echo "release_tag=$latest_release" >> $GITHUB_ENV
+      - name: Get latest GitHub release tag
+        id: get_latest_tag
+        run: echo ::set-output name=tag::$(git describe --tags --abbrev=0)
 
-      - name: Append to Latest GitHub Release
+      - name: Append macOS executable to latest GitHub release
         uses: softprops/action-gh-release@v1
         with:
           files: adbenq_macos_arm.tar.gz
-          tag_name: ${{ env.release_tag }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ steps.get_latest_tag.outputs.tag }}
+          token: ${{ secrets.GITHUB_TOKEN }}
