@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.x
+      - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
           python-version: "3.9"
@@ -26,11 +26,20 @@ jobs:
 
       - name: Build macOS Executable with PyInstaller
         run: |
+          chmod +x build.sh
           ./build.sh
+        shell: bash
+
+      - name: Verify Build Artifacts
+        run: |
+          if [ ! -f "dist/ADBenQ/ADBenQ" ]; then
+            echo "Build failed: Executable not found!"
+            exit 1
+          fi
 
       - name: Archive the executable
         run: |
-          mv dist/ADBenQ/ADBenQ /tmp/ADBenQ
+          mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
           tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
 
       - name: Get the latest release
