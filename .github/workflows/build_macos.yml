@@ -35,13 +35,22 @@ jobs:
           mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
           tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
 
-      - name: Draft a release
-        uses: softprops/action-gh-release@v1
+      - name: Get latest release tag name
+        id: get_latest_release
+        uses: actions/github-script@v6
         with:
-          files: adbenq_macos_arm.tar.gz
+          script: |
+            const latestRelease = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            core.setOutput('tag_name', latestRelease.data.tag_name);
+
+      - name: Upload Release Asset
+        uses: ncipollo/release-action@v1
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ github.sha }}
-          release_name: ${{ github.sha }}
-          body: "macOS executable for commit ${{ github.sha }}"
-          draft: true
-          prerelease: false
+          action: uploadAssets
+          artifacts: "adbenq_macos_arm.tar.gz"
+          tag: ${{ steps.get_latest_release.outputs.tag_name }}
+          allowUpdates: true
