@@ -1,4 +1,4 @@
-name: Build macOS Executable
+name: Build and Release macOS DMG
 
 on:
   push:
@@ -7,14 +7,15 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@v5
 
       - name: Set up Python 3.9
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
           python-version: "3.9"
 
@@ -24,19 +25,31 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
-      - name: Build macOS executable with PyInstaller
+      - name: Build application with PyInstaller
         run: |
-          chmod +x build.sh
-          ./build.sh
-        shell: bash
+          pyinstaller ADBenQ.spec
 
-      - name: Archive the executable
-        run: |
-          mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
-          tar -czvf ADBenQ-macos.tar.gz -C /tmp ADBenQ
-
-      - name: Upload the macOS executable
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: ADBenQ-macos
-          path: ADBenQ-macos.tar.gz
+          name: ADBenQ
+          path: dist/ADBenQ/ADBenQ
+
+  create_release:
+    name: Create release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ADBenQ
+          path: ./dist/ADBenQ
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./dist/ADBenQ/ADBenQ
+          tag_name: v${{ github.run_number }}
+          name: v${{ github.run_number }}
+          draft: true
