@@ -8,7 +8,7 @@
 
 <br />
 
-> Version: **0.1.6-alpha**
+> Version: **0.1.7-alpha**
 
 ---
 
