@@ -52,6 +52,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: adbenq_macos_arm.tar.gz
-          tag: ${{ env.release_tag }}
+          tag_name: ${{ env.latest_release }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
