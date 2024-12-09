@@ -181,8 +181,8 @@ class MainWindow(QWidget):
         """
         Sets the screen resolution of the connected device based on the input fields.
         """
-        width = self.ui.width_input.text()
-        height = self.ui.height_input.text()
+        width = int(self.ui.width_input.text())
+        height = int(self.ui.height_input.text())
 
         if not width or not height:
             self.log("Please provide valid sizes", 0)
