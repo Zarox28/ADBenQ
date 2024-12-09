@@ -36,7 +36,7 @@ jobs:
           tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
 
       - name: Add executable to latest release
-        run: |
-          gh release upload latest adbenq_macos_arm.tar.gz
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: planet-code/upload-to-release-action@1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          asset-path: adbenq_macos_arm.tar.gz
