@@ -2,8 +2,8 @@ name: Build and Release macOS
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 jobs:
   build:
@@ -44,6 +44,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ADBenQ
+          path: ./ADBenQ_macos.tar.gz
+
       - name: Create draft release
         uses: softprops/action-gh-release@v1
         with:
