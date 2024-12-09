@@ -33,7 +33,7 @@ jobs:
       - name: Archive the executable
         run: |
           mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
-          tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
+          tar -czf adbenq_macos_arm.tar.gz
 
       - name: Upload the executable to the latest release
         uses: softprops/action-gh-release@v1
