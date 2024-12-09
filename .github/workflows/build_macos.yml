@@ -42,13 +42,6 @@ jobs:
           mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
           tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
 
-      - name: Get latest GitHub release tag
-        id: get_latest_tag
-        run: echo ::set-output name=tag::$(git describe --tags --abbrev=0)
-
-      - name: Append macOS executable to latest GitHub release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: adbenq_macos_arm.tar.gz
-          tag_name: ${{ steps.get_latest_tag.outputs.tag }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Add executable to latest release
+        run: |
+          gh release upload latest adbenq_macos_arm.tar.gz
