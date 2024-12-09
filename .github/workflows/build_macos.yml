@@ -32,7 +32,7 @@ jobs:
 
       - name: Verify Build Artifacts
         run: |
-          if [ ! -f "dist/ADBenQ/ADBenQ" ]; then
+          if [ ! -f "dist/macos/ADBenQ/ADBenQ" ]; then
             echo "Build failed: Executable not found!"
             exit 1
           fi
