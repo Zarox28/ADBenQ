@@ -36,7 +36,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='ADBenQ - v0.1.6-alpha',
+    name='ADBenQ',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -47,7 +47,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=icon_file,
+    icon=icon_file if icon_file else None,
 )
 coll = COLLECT(
     exe,

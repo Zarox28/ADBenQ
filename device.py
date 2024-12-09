@@ -1,10 +1,11 @@
 # ----- IMPORTS -----
+import subprocess
+import threading
 
 from components.battery import Battery
 from components.brightness import Brightness
 from components.media import Media
 from components.screen import Screen
-import subprocess
 
 
 # ----- DEVICE -----
@@ -38,7 +39,10 @@ class Device:
         Args:
             device: The device object to open scrcpy for.
         """
-        subprocess.run(["scrcpy", "-s", device.get_serial_no()])
+        def run_scrcpy():
+            subprocess.run(["scrcpy", "-s", device.get_serial_no()])
+
+        threading.Thread(target=run_scrcpy).start()
 
     def open_settings(self, device) -> None:
         """
