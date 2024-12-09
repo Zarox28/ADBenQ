@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v2
 
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
@@ -30,7 +30,7 @@ jobs:
           pyinstaller ADBenQ.spec
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: ADBenQ
           path: dist/ADBenQ/ADBenQ
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: ADBenQ
           path: ./dist/ADBenQ
