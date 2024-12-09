@@ -1,0 +1,51 @@
+name: Build macOS Executable with PyInstaller
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build macOS Executable with PyInstaller
+        run: |
+          ./build.sh
+
+      - name: Archive the executable
+        run: |
+          mv dist/ADBenQ/ADBenQ /tmp/ADBenQ
+          tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
+
+      - name: Get the latest release
+        id: latest_release
+        run: |
+          latest_release=$(curl -s https://api.github.com/repos/Zarox28/ADBenQ/releases/latest)
+          echo "Latest release: $latest_release"
+          release_tag=$(echo $latest_release | jq -r '.tag_name')
+          echo "Release tag: $release_tag"
+          echo "release_tag=$release_tag" >> $GITHUB_ENV
+
+      - name: Append to Latest GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: adbenq_macos_arm.tar.gz
+          tag: ${{ env.release_tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
