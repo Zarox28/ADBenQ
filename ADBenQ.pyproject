@@ -7,7 +7,6 @@
         "components/screen.py",
         "connection.py",
         "device.py",
-        "src/icon.png",
         "src/ui/media/back.svg",
         "src/ui/media/down.svg",
         "src/ui/media/enter.svg",

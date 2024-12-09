@@ -33,9 +33,9 @@ class Connection:
         if devices:
             return devices[0].serial
         else:
-            return None
+            return ""
 
-    def connect_device(self, ip: str = None) -> bool:
+    def connect_device(self, ip: str = "") -> bool:
         """
         Connects to the device using the IP and port.
 
@@ -48,13 +48,11 @@ class Connection:
         if self.device is None:
             already_connected_device = self.get_connected_device()
 
-            if already_connected_device:
+            if already_connected_device != "":
                 self.device_ip = already_connected_device.split(":")[0]
                 self.device_port = int(already_connected_device.split(":")[1])
-            else:
-                return False
 
-        elif ip is not None:
+        if ip != "":
             self.device_ip = ip
 
         status = subprocess.run(["adb", "devices"], stdout=subprocess.PIPE, text=True)
@@ -63,9 +61,8 @@ class Connection:
         ):
             return False
 
-        if self.server.device(f"{self.device_ip}:{self.device_port}") is not None:
+        if self.server.remote_connect(self.device_ip, self.device_port):
             self.device = self.server.device(f"{self.device_ip}:{self.device_port}")
-            self.server.remote_connect(self.device_ip, self.device_port)
             self.connected = True
             return True
         else:

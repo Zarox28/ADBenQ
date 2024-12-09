@@ -1,5 +1,6 @@
 # ----- IMPORTS -----
 import re
+import socket
 
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QWidget
@@ -296,12 +297,8 @@ class MainWindow(QWidget):
         """
         ip_address = self.ui.ip_input.text()
 
-        ip_pattern = re.compile(
-            r"^(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$"
-        )
-
-        if not ip_address or not ip_pattern.match(ip_address):
-            self.log("Invalid IP address entered. Please provide a valid IP.", 0)
+        if not ip_address:
+            self.log("Invalid address entered. Please provide a valid address.", 0)
             return
 
         if self.connection.connected:
@@ -310,7 +307,7 @@ class MainWindow(QWidget):
             self.log("Disconnected from the device.", 1)
 
         else:
-            if self.connection.connect_device(ip_address):
+            if self.connection.connect_device(socket.gethostbyname(ip_address) if ip_address else ""):
                 self.refresh()
                 self.log(f"Connected to device at IP: {ip_address}", 1)
             else:
