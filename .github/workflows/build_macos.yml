@@ -48,12 +48,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ADBenQ
-          path: ./ADBenQ_macos.tar.gz
 
       - name: Create draft release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./ADBenQ_macos.tar.gz
-          tag_name: v${{ github.run_number }}
-          name: v${{ github.run_number }}
+          files: ADBenQ_macos.tar.gz
           draft: true
