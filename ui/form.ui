@@ -20,7 +20,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>ADBenQ</string>
+   <string>ADBenQ - v0.1.7-alpha</string>
   </property>
   <property name="windowIcon">
    <iconset>
