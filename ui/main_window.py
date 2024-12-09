@@ -18,10 +18,17 @@ class MainWindow(QWidget):
         :param text: The message to log.
         :param type: The type of message (1 for success, 0 for error).
         """
+        if self.log_timer is not None:
+            self.log_timer.stop()
+
         self.ui.log_text.setText(
             f'<span style="color: {"#00b300" if type == 1 else "#ff2600"}">{text}</span>'
         )
-        QTimer.singleShot(2000, lambda: self.ui.log_text.clear())
+
+        self.log_timer = QTimer()
+        self.log_timer.timeout.connect(lambda: self.ui.log_text.clear())
+        self.log_timer.setSingleShot(True)
+        self.log_timer.start(2000)
 
     def refresh(self) -> None:
         """
@@ -322,6 +329,8 @@ class MainWindow(QWidget):
         super().__init__(parent)
         self.ui = Ui_ADBenQ()
         self.ui.setupUi(self)
+
+        self.log_timer = None
 
         self.connection = Connection(self.ui)
         self.update_connection_state()
