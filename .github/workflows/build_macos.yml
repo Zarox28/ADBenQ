@@ -42,14 +42,11 @@ jobs:
           mv dist/macos/ADBenQ/ADBenQ /tmp/ADBenQ
           tar -czf adbenq_macos_arm.tar.gz -C /tmp ADBenQ
 
-      - name: Get the latest release
-        id: latest_release
+      - name: Get Latest GitHub Release Tag
+        id: get_release_tag
         run: |
-          latest_release=$(curl -s https://api.github.com/repos/Zarox28/ADBenQ/releases/latest)
-          echo "Latest release: $latest_release"
-          release_tag=$(echo $latest_release | jq -r '.tag_name')
-          echo "Release tag: $release_tag"
-          echo "release_tag=$release_tag" >> $GITHUB_ENV
+          latest_release=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)
+          echo "release_tag=$latest_release" >> $GITHUB_ENV
 
       - name: Append to Latest GitHub Release
         uses: softprops/action-gh-release@v1
