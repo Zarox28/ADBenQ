@@ -1,12 +1,12 @@
 {
     "files": [
-        "main.py",
         "components/battery.py",
         "components/brightness.py",
         "components/media.py",
         "components/screen.py",
         "connection.py",
         "device.py",
+        "main.py",
         "src/ui/media/back.svg",
         "src/ui/media/down.svg",
         "src/ui/media/enter.svg",
@@ -15,6 +15,7 @@
         "src/ui/media/right.svg",
         "src/ui/media/up.svg",
         "ui/form.ui",
-        "ui/main_window.py"
+        "ui/main_window.py",
+        "ui/ui_form.py"
     ]
 }

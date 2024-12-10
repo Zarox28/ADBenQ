@@ -1,7 +1,6 @@
 .DS_Store
-.qtcreator/
+.venv/
 .ropeproject/
 build/
 dist/
 ADBenQ.pyproject.user
-pysidedeploy.spec

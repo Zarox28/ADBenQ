@@ -26,8 +26,8 @@ jobs:
 
       - name: Build application with PyInstaller
         run: |
-          chmod +x build.sh
-          ./build.sh
+          pip install pyinstaller
+          pyinstaller ADbenQ.spec
 
       - name: Move executable
         run: |
