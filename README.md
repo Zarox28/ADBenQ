@@ -18,8 +18,8 @@
 - [📋 Requirements](#-requirements)
 - [🛠️ Installation](#-installation)
   - [🐍 Using Pip](#-using-pip)
-  - [🍺 Using Homebrew (MacOS)](#-using-homebrew-macos)
-  - [📦 Using PacMan (Arch Linux)](#-using-pacman-arch-linux)
+  - [📦 Using Tarball (MacOS)](#-using-tarball-macos)
+  - [🐧 Using PacMan (Arch Linux)](#-using-pacman-arch-linux)
 - [🚀 Usage](#-usage)
 - [📚 Documentation](#-documentation)
   - [🌟 Highlight of the Wiki](#-highlight-of-the-wiki)
@@ -86,21 +86,24 @@ To run **ADBenQ**, you'll need:
 
    The executable will be located in the `dist` folder.
 
-### 🍺 Using Homebrew (MacOS)
+### 📦 Using Tarball (MacOS)
 
-1. Install the app using Homebrew:
+1. Download the latest release from the [Releases](https://github.com/Zarox28/ADBenQ/releases) page.
 
-   ```bash
-   brew install zarox28/apps/adbenq
-   ```
-
-2. Run the app:
+2. Extract the tarball:
 
    ```bash
-    adbenq
+   tar -xvf ADBenQ-0.1.9-alpha-macos.tar.gz
+   cd ADBenQ-0.1.9-alpha-macos
    ```
 
-### 📦 Using PacMan (Arch Linux)
+3. Run the app:
+
+   ```bash
+    ./ADBenQ
+   ```
+
+### 🐧 Using PacMan (Arch Linux)
 
 TODO
 
