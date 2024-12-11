@@ -2,6 +2,7 @@
 import os
 import subprocess
 import threading
+import platformdirs
 from datetime import datetime
 
 
@@ -82,7 +83,7 @@ class Screen:
         def screenshot_thread():
           screenshot = device.screencap()
 
-          downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
+          downloads_path = platformdirs.user_downloads_dir()
           current_date_time = datetime.now().strftime("%Y:%m:%d_%H-%M-%S")
           screenshot_path = os.path.join(
               downloads_path, f"screen_{current_date_time}.png"
