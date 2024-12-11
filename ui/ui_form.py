@@ -308,10 +308,25 @@ class Ui_ADBenQ(object):
 
         self.volume_container = QVBoxLayout()
         self.volume_container.setObjectName(u"volume_container")
+        self.volume_label_container = QHBoxLayout()
+        self.volume_label_container.setSpacing(10)
+        self.volume_label_container.setObjectName(u"volume_label_container")
         self.volume_label = QLabel(self.general_tab)
         self.volume_label.setObjectName(u"volume_label")
 
-        self.volume_container.addWidget(self.volume_label)
+        self.volume_label_container.addWidget(self.volume_label)
+
+        self.volume_slider_show_checkbox = QCheckBox(self.general_tab)
+        self.volume_slider_show_checkbox.setObjectName(u"volume_slider_show_checkbox")
+
+        self.volume_label_container.addWidget(self.volume_slider_show_checkbox)
+
+        self.horizontal_spacer_7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.volume_label_container.addItem(self.horizontal_spacer_7)
+
+
+        self.volume_container.addLayout(self.volume_label_container)
 
         self.volume_slider_container = QHBoxLayout()
         self.volume_slider_container.setObjectName(u"volume_slider_container")
@@ -471,7 +486,7 @@ class Ui_ADBenQ(object):
     # setupUi
 
     def retranslateUi(self, ADBenQ):
-        ADBenQ.setWindowTitle(QCoreApplication.translate("ADBenQ", u"ADBenQ - v0.1.9-alpha", None))
+        ADBenQ.setWindowTitle(QCoreApplication.translate("ADBenQ", u"ADBenQ - v0.1.10-alpha", None))
         self.state_text.setText(QCoreApplication.translate("ADBenQ", u"<html><head/><body><p><span style=\" color:#ffffff;\">State:</span><span style=\" color:#ff2600;\"> disconnected</span></p></body></html>", None))
         self.log_text.setText("")
         self.scrcpy_button.setText(QCoreApplication.translate("ADBenQ", u"Scrcpy", None))
@@ -500,6 +515,7 @@ class Ui_ADBenQ(object):
         self.brightness_label.setText(QCoreApplication.translate("ADBenQ", u"Brightness", None))
         self.brightness_value_text.setText(QCoreApplication.translate("ADBenQ", u"-- %", None))
         self.volume_label.setText(QCoreApplication.translate("ADBenQ", u"Volume", None))
+        self.volume_slider_show_checkbox.setText(QCoreApplication.translate("ADBenQ", u"Show", None))
         self.volume_value_text.setText(QCoreApplication.translate("ADBenQ", u"-- %", None))
         self.tabs.setTabText(self.tabs.indexOf(self.general_tab), QCoreApplication.translate("ADBenQ", u"General", None))
         self.left_button.setText("")

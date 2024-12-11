@@ -8,7 +8,7 @@
 
 <br />
 
-> Version: **0.1.9-alpha**
+> Version: **0.1.10-alpha**
 
 ---
 
@@ -17,6 +17,11 @@
 - [ℹ️ About](#-about)
 - [📋 Requirements](#-requirements)
 - [🛠️ Installation](#-installation)
+  - [🐍 Using Pip](#-using-pip)
+  - [📦 Using Tarball (MacOS)](#-using-tarball-macos)
+  - [🐧 Arch Linux and derivatives (AUR)](#-arch-linux-and-derivatives-aur)
+    - [Using paru/yay](#using-paruyay)
+    - [Manually](#manually)
 - [🚀 Usage](#-usage)
 - [📚 Documentation](#-documentation)
   - [🌟 Highlight of the Wiki](#-highlight-of-the-wiki)
@@ -53,6 +58,8 @@ To run **ADBenQ**, you'll need:
 
 ## 🛠️ Installation
 
+### 🐍 Using Pip
+
 1. Clone the repository:
 
    ```bash
@@ -75,11 +82,57 @@ To run **ADBenQ**, you'll need:
 4. (Optional) Create a standalone executable:
 
    ```bash
-   chmod +x build.sh
-    ./build.sh
+   pip install pyinstaller
+    pyinstaller ADBenQ.spec
    ```
 
    The executable will be located in the `dist` folder.
+
+### 📦 Using Tarball (MacOS)
+
+1. Download the latest release from the [Releases](https://github.com/Zarox28/ADBenQ/releases) page.
+
+2. Extract the tarball:
+
+   ```bash
+   tar -xvf ADBenQ-0.1.9-alpha-macos.tar.gz
+   cd ADBenQ-0.1.9-alpha-macos
+   ```
+
+3. Run the app:
+
+   ```bash
+    ./ADBenQ
+   ```
+
+### 🐧 Arch Linux and derivatives (AUR)
+
+#### Using paru/yay
+
+```bash
+paru -S adbenq-git
+```
+
+or
+
+```
+yay -S adbenq-git
+```
+
+#### Manually
+
+1. Clone the build scripts from the aur or download snapshot
+
+   ```
+   git clone https://aur.archlinux.org/adbenq-git.git
+   ```
+
+2. Open a terminal inside the cloned directory
+3. Run the build scrips using makepkg
+
+   ```
+   makepkg -si
+   ```
 
 ## 🚀 Usage
 
@@ -112,6 +165,10 @@ Contributions are welcome! Open an issue or create a pull request to share your 
 ## 📜 License
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+
+## Contributors
+
+- **[@0x4c756e61 (Luna)](https://github.com/0x4c756e61)** - Provided the package for Arch Linux and derivatives.
 
 ## 🧑‍💻 Author
 
