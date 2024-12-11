@@ -61,6 +61,8 @@ class MainWindow(QWidget):
         self.ui.brightness_value_text.setText("-- %")
         self.ui.volume_value_text.setText("-- %")
 
+        self.ui.volume_slider_show_checkbox.setChecked(False)
+
     def update_connection_state(self) -> None:
         """
         Updates the connection state UI elements based on the current connection status.
@@ -226,8 +228,10 @@ class MainWindow(QWidget):
         Sets the volume level of the connected device based on the slider value.
         """
         volume = self.ui.volume_slider.value()
+        show = self.ui.volume_slider_show_checkbox.isChecked()
+
         self.connection.connected_device.media.set_volume_level(
-            self.connection.device, volume
+            self.connection.device, volume, show
         )
         self.ui.volume_value_text.setText(f"{volume} %")
 
