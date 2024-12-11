@@ -20,7 +20,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>ADBenQ - v0.1.10-alpha</string>
+   <string>ADBenQ - v0.1.11-alpha</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -638,105 +638,9 @@
            <property name="text">
             <string/>
            </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-           <property name="flat">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QPushButton" name="right_button">
-           <property name="focusPolicy">
-            <enum>Qt::FocusPolicy::NoFocus</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-           <property name="flat">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="enter_button">
-           <property name="focusPolicy">
-            <enum>Qt::FocusPolicy::NoFocus</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-           <property name="flat">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QPushButton" name="up_button">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="ButtonText">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>147</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="ButtonText">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>147</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled/>
-            </palette>
-           </property>
-           <property name="focusPolicy">
-            <enum>Qt::FocusPolicy::NoFocus</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../src/ui/media/up.svg</normaloff>../src/ui/media/up.svg</iconset>
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/left.svg</normaloff>:/media/src/media/left.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -760,6 +664,10 @@
            <property name="text">
             <string/>
            </property>
+           <property name="icon">
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/back.svg</normaloff>:/media/src/media/back.svg</iconset>
+           </property>
            <property name="iconSize">
             <size>
              <width>32</width>
@@ -771,8 +679,8 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QPushButton" name="down_button">
+         <item row="1" column="2">
+          <widget class="QPushButton" name="right_button">
            <property name="focusPolicy">
             <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
@@ -781,6 +689,10 @@
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/right.svg</normaloff>:/media/src/media/right.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -803,6 +715,82 @@
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/pause_circle.svg</normaloff>:/media/src/media/pause_circle.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="down_button">
+           <property name="focusPolicy">
+            <enum>Qt::FocusPolicy::NoFocus</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/down.svg</normaloff>:/media/src/media/down.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="enter_button">
+           <property name="focusPolicy">
+            <enum>Qt::FocusPolicy::NoFocus</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/enter.svg</normaloff>:/media/src/media/enter.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="up_button">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../ui.qrc">
+             <normaloff>:/media/src/media/up.svg</normaloff>:/media/src/media/up.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -899,6 +887,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../ui.qrc"/>
+ </resources>
  <connections/>
 </ui>
