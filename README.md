@@ -20,13 +20,14 @@
   - [🐍 Using Pip](#-using-pip)
   - [📦 Using Tarball (MacOS)](#-using-tarball-macos)
   - [🐧 Arch Linux and derivatives (AUR)](#-arch-linux-and-derivatives-aur)
-    - [Using paru/yay](#using-paruyay)
-    - [Manually](#manually)
+    - [💻 Using paru/yay](#-using-paruyay)
+    - [🔧 Manually](#-manually)
 - [🚀 Usage](#-usage)
 - [📚 Documentation](#-documentation)
   - [🌟 Highlight of the Wiki](#-highlight-of-the-wiki)
 - [🤝 Contributing](#-contributing)
 - [📜 License](#-license)
+- [👥 Contributors](#-contributors)
 - [🧑‍💻 Author](#-author)
 
 ## ℹ️ About
@@ -61,31 +62,31 @@ To run **ADBenQ**, you'll need:
 ### 🐍 Using Pip
 
 1. Clone the repository:
-
+   
    ```bash
    git clone https://github.com/Zarox28/ADBenQ.git
    cd ADBenQ
    ```
 
 2. Install dependencies:
-
+   
    ```bash
    pip install -r requirements.txt
    ```
 
 3. Run the app:
-
+   
    ```bash
    python main.py
    ```
 
 4. (Optional) Create a standalone executable:
-
+   
    ```bash
    pip install pyinstaller
     pyinstaller ADBenQ.spec
    ```
-
+   
    The executable will be located in the `dist` folder.
 
 ### 📦 Using Tarball (MacOS)
@@ -93,21 +94,21 @@ To run **ADBenQ**, you'll need:
 1. Download the latest release from the [Releases](https://github.com/Zarox28/ADBenQ/releases) page.
 
 2. Extract the tarball:
-
+   
    ```bash
-   tar -xvf ADBenQ-0.1.9-alpha-macos.tar.gz
-   cd ADBenQ-0.1.9-alpha-macos
+   tar -xvf ADBenQ-macos.tar.gz
+   cd ADBenQ
    ```
 
 3. Run the app:
-
+   
    ```bash
     ./ADBenQ
    ```
 
 ### 🐧 Arch Linux and derivatives (AUR)
 
-#### Using paru/yay
+#### 💻 Using paru/yay
 
 ```bash
 paru -S adbenq-git
@@ -115,22 +116,23 @@ paru -S adbenq-git
 
 or
 
-```
+```bash
 yay -S adbenq-git
 ```
 
-#### Manually
+#### 🔧 Manually
 
 1. Clone the build scripts from the aur or download snapshot
-
-   ```
+   
+   ```bash
    git clone https://aur.archlinux.org/adbenq-git.git
    ```
 
 2. Open a terminal inside the cloned directory
-3. Run the build scrips using makepkg
 
-   ```
+3. Run the build scrips using makepkg
+   
+   ```bash
    makepkg -si
    ```
 
@@ -166,7 +168,7 @@ Contributions are welcome! Open an issue or create a pull request to share your 
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
-## Contributors
+## 👥 Contributors
 
 - **[@0x4c756e61 (Luna)](https://github.com/0x4c756e61)** - Provided the package for Arch Linux and derivatives.
 
