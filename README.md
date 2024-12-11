@@ -17,16 +17,11 @@
 - [ℹ️ About](#-about)
 - [📋 Requirements](#-requirements)
 - [🛠️ Installation](#-installation)
-<<<<<<< ours
   - [🐍 Using Pip](#-using-pip)
   - [📦 Using Tarball (MacOS)](#-using-tarball-macos)
-  - [🐧 Using PacMan (Arch Linux)](#-using-pacman-arch-linux)
-||||||| ancestor
-=======
-  - [🐍 Using Pip](#-using-pip)
-  - [🍺 Using Homebrew (MacOS)](#-using-homebrew-macos)
-  - [📦 Using PacMan (Arch Linux)](#-using-pacman-arch-linux)
->>>>>>> theirs
+  - [🐧 Arch Linux and derivatives (AUR)](#-arch-linux-and-derivatives-aur)
+    - [Using paru/yay](#using-paruyay)
+    - [Manually](#manually)
 - [🚀 Usage](#-usage)
 - [📚 Documentation](#-documentation)
   - [🌟 Highlight of the Wiki](#-highlight-of-the-wiki)
@@ -87,13 +82,12 @@ To run **ADBenQ**, you'll need:
 4. (Optional) Create a standalone executable:
 
    ```bash
-   chmod +x build.sh
-    ./build.sh
+   pip install pyinstaller
+    pyinstaller ADBenQ.spec
    ```
 
    The executable will be located in the `dist` folder.
 
-<<<<<<< ours
 ### 📦 Using Tarball (MacOS)
 
 1. Download the latest release from the [Releases](https://github.com/Zarox28/ADBenQ/releases) page.
@@ -111,19 +105,22 @@ To run **ADBenQ**, you'll need:
     ./ADBenQ
    ```
 
-### 🐧  Arch Linux and derivatives (AUR)
+### 🐧 Arch Linux and derivatives (AUR)
 
 #### Using paru/yay
 
 ```bash
 paru -S adbenq-git
 ```
+
 or
+
 ```
-yay -S adbenq-git 
+yay -S adbenq-git
 ```
 
 #### Manually
+
 1. Clone the build scripts from the aur or download snapshot
 
    ```
@@ -137,27 +134,6 @@ yay -S adbenq-git
    makepkg -si
    ```
 
-||||||| ancestor
-=======
-### 🍺 Using Homebrew (MacOS)
-
-1. Install the app using Homebrew:
-
-   ```bash
-   brew install zarox28/apps/adbenq
-   ```
-
-2. Run the app:
-
-   ```bash
-    adbenq
-   ```
-
-### 📦 Using PacMan (Arch Linux)
-
-TODO
-
->>>>>>> theirs
 ## 🚀 Usage
 
 Follow these steps to use ADBenQ:
@@ -190,7 +166,10 @@ Contributions are welcome! Open an issue or create a pull request to share your 
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
-## 🧑‍💻 Authors
+## Contributors
+
+- **[@0x4c756e61 (Luna)](https://github.com/0x4c756e61)** - Provided the package for Arch Linux and derivatives.
+
+## 🧑‍💻 Author
 
 - **[@Zarox28](https://github.com/Zarox28)**
-- **[@0x4c756e61 (Luna)](https://github.com/0x4c756e61)**
