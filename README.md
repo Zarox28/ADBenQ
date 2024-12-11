@@ -111,9 +111,31 @@ To run **ADBenQ**, you'll need:
     ./ADBenQ
    ```
 
-### 🐧 Using PacMan (Arch Linux)
+### 🐧  Arch Linux and derivatives (AUR)
 
-TODO
+#### Using paru/yay
+
+```bash
+paru -S adbenq-git
+```
+or
+```
+yay -S adbenq-git 
+```
+
+#### Manually
+1. Clone the build scripts from the aur or download snapshot
+
+   ```
+   git clone https://aur.archlinux.org/adbenq-git.git
+   ```
+
+2. Open a terminal inside the cloned directory
+3. Run the build scrips using makepkg
+
+   ```
+   makepkg -si
+   ```
 
 ||||||| ancestor
 =======
