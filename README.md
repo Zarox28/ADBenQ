@@ -107,7 +107,7 @@ To run **ADBenQ**, you'll need:
 
 ### 🐧 Arch Linux and derivatives (AUR)
 
-#### Using paru/yay
+#### 💻 Using paru/yay
 
 ```bash
 paru -S adbenq-git
@@ -119,7 +119,7 @@ or
 yay -S adbenq-git
 ```
 
-#### Manually
+#### 🔧 Manually
 
 1. Clone the build scripts from the aur or download snapshot
 
@@ -128,6 +128,7 @@ yay -S adbenq-git
    ```
 
 2. Open a terminal inside the cloned directory
+
 3. Run the build scrips using makepkg
 
    ```
