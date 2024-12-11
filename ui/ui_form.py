@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QLayout, QLineEdit,
     QPushButton, QSizePolicy, QSlider, QSpacerItem,
     QTabWidget, QVBoxLayout, QWidget)
+import rc_ui
 
 class Ui_ADBenQ(object):
     def setupUi(self, ADBenQ):
@@ -372,24 +373,69 @@ class Ui_ADBenQ(object):
         self.left_button.setObjectName(u"left_button")
         self.left_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.left_button.setAutoFillBackground(False)
+        icon1 = QIcon()
+        icon1.addFile(u":/media/src/media/left.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.left_button.setIcon(icon1)
         self.left_button.setIconSize(QSize(32, 32))
         self.left_button.setFlat(True)
 
         self.buttons_container.addWidget(self.left_button, 1, 0, 1, 1)
 
+        self.back_button = QPushButton(self.media_tab)
+        self.back_button.setObjectName(u"back_button")
+        self.back_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.back_button.setAutoFillBackground(False)
+        icon2 = QIcon()
+        icon2.addFile(u":/media/src/media/back.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.back_button.setIcon(icon2)
+        self.back_button.setIconSize(QSize(32, 32))
+        self.back_button.setFlat(True)
+
+        self.buttons_container.addWidget(self.back_button, 2, 0, 1, 1)
+
         self.right_button = QPushButton(self.media_tab)
         self.right_button.setObjectName(u"right_button")
         self.right_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.right_button.setAutoFillBackground(False)
+        icon3 = QIcon()
+        icon3.addFile(u":/media/src/media/right.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.right_button.setIcon(icon3)
         self.right_button.setIconSize(QSize(32, 32))
         self.right_button.setFlat(True)
 
         self.buttons_container.addWidget(self.right_button, 1, 2, 1, 1)
 
+        self.pause_button = QPushButton(self.media_tab)
+        self.pause_button.setObjectName(u"pause_button")
+        self.pause_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.pause_button.setAutoFillBackground(False)
+        icon4 = QIcon()
+        icon4.addFile(u":/media/src/media/pause_circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pause_button.setIcon(icon4)
+        self.pause_button.setIconSize(QSize(32, 32))
+        self.pause_button.setFlat(True)
+
+        self.buttons_container.addWidget(self.pause_button, 2, 2, 1, 1)
+
+        self.down_button = QPushButton(self.media_tab)
+        self.down_button.setObjectName(u"down_button")
+        self.down_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.down_button.setAutoFillBackground(False)
+        icon5 = QIcon()
+        icon5.addFile(u":/media/src/media/down.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.down_button.setIcon(icon5)
+        self.down_button.setIconSize(QSize(32, 32))
+        self.down_button.setFlat(True)
+
+        self.buttons_container.addWidget(self.down_button, 2, 1, 1, 1)
+
         self.enter_button = QPushButton(self.media_tab)
         self.enter_button.setObjectName(u"enter_button")
         self.enter_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.enter_button.setAutoFillBackground(False)
+        icon6 = QIcon()
+        icon6.addFile(u":/media/src/media/enter.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.enter_button.setIcon(icon6)
         self.enter_button.setIconSize(QSize(32, 32))
         self.enter_button.setFlat(True)
 
@@ -397,49 +443,13 @@ class Ui_ADBenQ(object):
 
         self.up_button = QPushButton(self.media_tab)
         self.up_button.setObjectName(u"up_button")
-        self.up_button.setEnabled(False)
-        palette = QPalette()
-        brush = QBrush(QColor(255, 147, 0, 255))
-        brush.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.ButtonText, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        self.up_button.setPalette(palette)
-        self.up_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.up_button.setAutoFillBackground(False)
-        icon1 = QIcon()
-        icon1.addFile(u"../src/ui/media/up.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.up_button.setIcon(icon1)
+        icon7 = QIcon()
+        icon7.addFile(u":/media/src/media/up.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.up_button.setIcon(icon7)
         self.up_button.setIconSize(QSize(32, 32))
         self.up_button.setFlat(True)
 
         self.buttons_container.addWidget(self.up_button, 0, 1, 1, 1)
-
-        self.back_button = QPushButton(self.media_tab)
-        self.back_button.setObjectName(u"back_button")
-        self.back_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.back_button.setAutoFillBackground(False)
-        self.back_button.setIconSize(QSize(32, 32))
-        self.back_button.setFlat(True)
-
-        self.buttons_container.addWidget(self.back_button, 2, 0, 1, 1)
-
-        self.down_button = QPushButton(self.media_tab)
-        self.down_button.setObjectName(u"down_button")
-        self.down_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.down_button.setAutoFillBackground(False)
-        self.down_button.setIconSize(QSize(32, 32))
-        self.down_button.setFlat(True)
-
-        self.buttons_container.addWidget(self.down_button, 2, 1, 1, 1)
-
-        self.pause_button = QPushButton(self.media_tab)
-        self.pause_button.setObjectName(u"pause_button")
-        self.pause_button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.pause_button.setAutoFillBackground(False)
-        self.pause_button.setIconSize(QSize(32, 32))
-        self.pause_button.setFlat(True)
-
-        self.buttons_container.addWidget(self.pause_button, 2, 2, 1, 1)
 
 
         self.gridLayout_2.addLayout(self.buttons_container, 1, 1, 1, 1)
@@ -479,7 +489,7 @@ class Ui_ADBenQ(object):
 
         self.retranslateUi(ADBenQ)
 
-        self.tabs.setCurrentIndex(0)
+        self.tabs.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(ADBenQ)
@@ -519,12 +529,12 @@ class Ui_ADBenQ(object):
         self.volume_value_text.setText(QCoreApplication.translate("ADBenQ", u"-- %", None))
         self.tabs.setTabText(self.tabs.indexOf(self.general_tab), QCoreApplication.translate("ADBenQ", u"General", None))
         self.left_button.setText("")
+        self.back_button.setText("")
         self.right_button.setText("")
+        self.pause_button.setText("")
+        self.down_button.setText("")
         self.enter_button.setText("")
         self.up_button.setText("")
-        self.back_button.setText("")
-        self.down_button.setText("")
-        self.pause_button.setText("")
         self.tabs.setTabText(self.tabs.indexOf(self.media_tab), QCoreApplication.translate("ADBenQ", u"Media", None))
         self.tabs.setTabText(self.tabs.indexOf(self.apps_tab), QCoreApplication.translate("ADBenQ", u"Apps", None))
         self.tabs.setTabText(self.tabs.indexOf(self.activities_tab), QCoreApplication.translate("ADBenQ", u"Activities", None))

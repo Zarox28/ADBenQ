@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/media">
+        <file>src/media/back.svg</file>
+        <file>src/media/down.svg</file>
+        <file>src/media/enter.svg</file>
+        <file>src/media/left.svg</file>
+        <file>src/media/pause_circle.svg</file>
+        <file>src/media/right.svg</file>
+        <file>src/media/up.svg</file>
+    </qresource>
+</RCC>
