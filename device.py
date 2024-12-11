@@ -39,6 +39,7 @@ class Device:
         Args:
             device: The device object to open scrcpy for.
         """
+
         def scrcpy_thread():
             subprocess.run(["scrcpy", "-s", device.get_serial_no()])
 

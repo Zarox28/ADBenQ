@@ -21,7 +21,9 @@ class Media:
             level: The volume level to set as an integer.
             show_slider: Whether to show the volume slider on the screen.
         """
-        device.shell(f"cmd media_session volume --stream 3 --set {int(level)} {'--show' if show_slider else ''}")
+        device.shell(
+            f"cmd media_session volume --stream 3 --set {int(level)} {'--show' if show_slider else ''}"
+        )
 
     def __init__(self, ui) -> None:
         """
