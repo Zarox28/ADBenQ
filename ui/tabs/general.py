@@ -2,8 +2,6 @@
 import re
 import socket
 
-from connection import Connection
-
 
 # ----- GENERAL TAB -----
 class GeneralTab:
@@ -307,7 +305,7 @@ class GeneralTab:
 
         self.update_connection_state()
 
-    def __init__(self, parent, ui) -> None:
+    def __init__(self, parent, ui, connection) -> None:
         """
         Initializes the GeneralTab class.
 
@@ -317,7 +315,7 @@ class GeneralTab:
         """
         self.parent = parent
         self.ui = ui
-        self.connection = Connection(self.ui)
+        self.connection = connection
 
         self.update_connection_state()
 

@@ -2,8 +2,10 @@
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QWidget
 
-from ui.ui_form import Ui_ADBenQ
+from connection import Connection
 from ui.tabs.general import GeneralTab
+from ui.tabs.media import MediaTab
+from ui.ui_form import Ui_ADBenQ
 
 
 # ----- MAIN WINDOW -----
@@ -37,4 +39,7 @@ class MainWindow(QWidget):
 
         self.log_timer = None
 
-        self.general_tab = GeneralTab(self, self.ui)
+        self.connection = Connection(self.ui)
+
+        self.general_tab = GeneralTab(self, self.ui, self.connection)
+        self.media_tab = MediaTab(self, self.ui, self.connection)
