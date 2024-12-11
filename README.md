@@ -61,31 +61,31 @@ To run **ADBenQ**, you'll need:
 ### 🐍 Using Pip
 
 1. Clone the repository:
-
+   
    ```bash
    git clone https://github.com/Zarox28/ADBenQ.git
    cd ADBenQ
    ```
 
 2. Install dependencies:
-
+   
    ```bash
    pip install -r requirements.txt
    ```
 
 3. Run the app:
-
+   
    ```bash
    python main.py
    ```
 
 4. (Optional) Create a standalone executable:
-
+   
    ```bash
    pip install pyinstaller
     pyinstaller ADBenQ.spec
    ```
-
+   
    The executable will be located in the `dist` folder.
 
 ### 📦 Using Tarball (MacOS)
@@ -93,14 +93,14 @@ To run **ADBenQ**, you'll need:
 1. Download the latest release from the [Releases](https://github.com/Zarox28/ADBenQ/releases) page.
 
 2. Extract the tarball:
-
+   
    ```bash
    tar -xvf ADBenQ-0.1.9-alpha-macos.tar.gz
    cd ADBenQ-0.1.9-alpha-macos
    ```
 
 3. Run the app:
-
+   
    ```bash
     ./ADBenQ
    ```
@@ -122,7 +122,7 @@ yay -S adbenq-git
 #### 🔧 Manually
 
 1. Clone the build scripts from the aur or download snapshot
-
+   
    ```
    git clone https://aur.archlinux.org/adbenq-git.git
    ```
@@ -130,7 +130,7 @@ yay -S adbenq-git
 2. Open a terminal inside the cloned directory
 
 3. Run the build scrips using makepkg
-
+   
    ```
    makepkg -si
    ```
