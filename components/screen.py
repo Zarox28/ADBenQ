@@ -75,7 +75,7 @@ class Screen:
 
     def take_screenshot(self, device) -> None:
         """
-        Take a screenshot of the current screen and save it to the Downloads folder.
+        Take a screenshot of the current screen and save it to the downloads folder.
 
         Args:
             device: The device to take the screenshot from.
