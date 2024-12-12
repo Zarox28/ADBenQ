@@ -62,31 +62,31 @@ To run **ADBenQ**, you'll need:
 ### 🐍 Using Pip
 
 1. Clone the repository:
-   
+
    ```bash
    git clone https://github.com/Zarox28/ADBenQ.git
    cd ADBenQ
    ```
 
 2. Install dependencies:
-   
+
    ```bash
    pip install -r requirements.txt
    ```
 
 3. Run the app:
-   
+
    ```bash
    python main.py
    ```
 
 4. (Optional) Create a standalone executable:
-   
+
    ```bash
    pip install pyinstaller
-    pyinstaller ADBenQ.spec
+   pyinstaller ADBenQ.spec
    ```
-   
+
    The executable will be located in the `dist` folder.
 
 ### 📦 Using Tarball (MacOS)
@@ -94,14 +94,14 @@ To run **ADBenQ**, you'll need:
 1. Download the latest release from the [Releases](https://github.com/Zarox28/ADBenQ/releases) page.
 
 2. Extract the tarball:
-   
+
    ```bash
    tar -xvf ADBenQ-macos.tar.gz
    cd ADBenQ
    ```
 
 3. Run the app:
-   
+
    ```bash
     ./ADBenQ
    ```
@@ -123,7 +123,7 @@ yay -S adbenq-git
 #### 🔧 Manually
 
 1. Clone the build scripts from the aur or download snapshot
-   
+
    ```bash
    git clone https://aur.archlinux.org/adbenq-git.git
    ```
@@ -131,7 +131,7 @@ yay -S adbenq-git
 2. Open a terminal inside the cloned directory
 
 3. Run the build scrips using makepkg
-   
+
    ```bash
    makepkg -si
    ```
@@ -140,9 +140,9 @@ yay -S adbenq-git
 
 Follow these steps to use ADBenQ:
 
-1. 🚀 Launch the application by running `python main.py`.
+1. 🚀 Launch the application.
 2. 📡 Connect your BenQ TV to the same network as your computer.
-3. 🖥️ Enter the TV's IP address in the app interface.
+3. 🖥️ Enter the TV's IP address in the app interface (if it's not already connected).
 4. 🎮 Explore the control options.
 5. 🎉 Enjoy the power of controlling your TV from your computer! 🚀
 
@@ -157,6 +157,7 @@ Looking for more details about ADBenQ’s features or troubleshooting advice? We
 ### 🌟 Highlight of the Wiki:
 
 - [General tab](https://github.com/Zarox28/ADBenQ/wiki/General-Tab) - Learn how to connect your TV and general purpose of the app. 📺
+- [Media Tab](https://github.com/Zarox28/ADBenQ/wiki/General-Tab) - Control media playback on your TV. 🎥
 
 Check out the [Wiki](https://github.com/Zarox28/ADBenQ/wiki/Home) to make the most out of ADBenQ! 🚀
 
