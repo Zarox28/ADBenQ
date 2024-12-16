@@ -32,18 +32,26 @@ class Device:
 
         return informations
 
-    def open_scrcpy(self, device) -> None:
+    def open_scrcpy(self, device) -> bool:
         """
         Open scrcpy for the given device.
 
         Args:
             device: The device object to open scrcpy for.
+
+        Returns:
+            bool: True if scrcpy was started, False if it was already running
         """
+        # Check if scrcpy is already running for this device
+        ps_output = subprocess.run(["ps", "aux"], capture_output=True, text=True).stdout
+        if f"scrcpy -s {device.get_serial_no()}" in ps_output:
+            return False
 
         def scrcpy_thread():
             subprocess.run(["scrcpy", "-s", device.get_serial_no()])
 
         threading.Thread(target=scrcpy_thread).start()
+        return True
 
     def open_settings(self, device) -> None:
         """
