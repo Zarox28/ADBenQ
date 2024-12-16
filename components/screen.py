@@ -2,6 +2,7 @@
 import os
 import subprocess
 import threading
+import platform
 import platformdirs
 from datetime import datetime
 
@@ -94,9 +95,10 @@ class Screen:
                 f.write(screenshot)
 
             try:
-                if os.name == "posix":
+                os_type = platform.system()
+                if os_type == "Darwin":
                     subprocess.run(["open", screenshot_path], check=True)
-                elif os.name == "nt":
+                elif os_type == "Windows":
                     os.startfile(screenshot_path)
                 else:
                     subprocess.run(["xdg-open", screenshot_path], check=True)
