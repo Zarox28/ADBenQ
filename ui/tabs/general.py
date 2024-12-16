@@ -252,8 +252,10 @@ class GeneralTab:
         """
         Opens the SCRCPY application for the connected device.
         """
-        self.connection.connected_device.open_scrcpy(self.connection.device)
-        self.parent.log("Starting SCRCPY...", 1)
+        if self.connection.connected_device.open_scrcpy(self.connection.device):
+          self.parent.log("Starting SCRCPY...", 1)
+        else:
+          self.parent.log("SCRCPY is already running", 0)
 
     def open_settings(self) -> None:
         """
