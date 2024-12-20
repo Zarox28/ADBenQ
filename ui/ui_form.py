@@ -36,12 +36,11 @@ class Ui_ADBenQ(object):
         self.gridLayout.setVerticalSpacing(8)
         self.gridLayout.setContentsMargins(-1, -1, -1, 8)
         self.state_container = QHBoxLayout()
-#ifndef Q_OS_MAC
-        self.state_container.setSpacing(-1)
-#endif
+        self.state_container.setSpacing(10)
         self.state_container.setObjectName(u"state_container")
         self.state_text = QLabel(ADBenQ)
         self.state_text.setObjectName(u"state_text")
+        self.state_text.setMouseTracking(True)
 
         self.state_container.addWidget(self.state_text)
 
@@ -51,11 +50,23 @@ class Ui_ADBenQ(object):
 
         self.log_text = QLabel(ADBenQ)
         self.log_text.setObjectName(u"log_text")
+        self.log_text.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.log_text.setWordWrap(False)
+        self.log_text.setMargin(0)
 
         self.state_container.addWidget(self.log_text)
 
+        self.horizontal_spacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.state_container.addItem(self.horizontal_spacer_8)
+
         self.refresh_button = QPushButton(ADBenQ)
         self.refresh_button.setObjectName(u"refresh_button")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.refresh_button.sizePolicy().hasHeightForWidth())
+        self.refresh_button.setSizePolicy(sizePolicy)
 
         self.state_container.addWidget(self.refresh_button)
 
@@ -67,9 +78,6 @@ class Ui_ADBenQ(object):
         self.tabs.setEnabled(True)
         self.general_tab = QWidget()
         self.general_tab.setObjectName(u"general_tab")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.general_tab.sizePolicy().hasHeightForWidth())
         self.general_tab.setSizePolicy(sizePolicy)
         self.general_tab.setMinimumSize(QSize(0, 0))
