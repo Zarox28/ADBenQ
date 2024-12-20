@@ -29,6 +29,25 @@ class MainWindow(QWidget):
         self.log_timer.setSingleShot(True)
         self.log_timer.start(2000)
 
+    def reset_ui(self) -> None:
+        """
+        Resets the UI elements to their default state.
+        """
+        self.ui.battery_input.clear()
+        self.ui.link_input.clear()
+        self.ui.width_input.clear()
+        self.ui.height_input.clear()
+
+        self.ui.device_name_text.setText("Name:")
+        self.ui.device_model_text.setText("Model:")
+        self.ui.device_version_text.setText("Android version:")
+        self.ui.device_screen_resolution_text.setText("Screen resolution:")
+
+        self.ui.brightness_value_text.setText("-- %")
+        self.ui.volume_value_text.setText("-- %")
+
+        self.ui.volume_slider_show_checkbox.setChecked(False)
+
     def __init__(self, parent=None) -> None:
         """
         Initializes the main window and sets up the UI and connections.

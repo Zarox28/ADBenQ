@@ -18,25 +18,6 @@ class GeneralTab:
         self.update_screen_resolution()
         self.update_display_state()
 
-    def reset_ui(self) -> None:
-        """
-        Resets the UI elements to their default state.
-        """
-        self.ui.battery_input.clear()
-        self.ui.link_input.clear()
-        self.ui.width_input.clear()
-        self.ui.height_input.clear()
-
-        self.ui.device_name_text.setText("Name:")
-        self.ui.device_model_text.setText("Model:")
-        self.ui.device_version_text.setText("Android version:")
-        self.ui.device_screen_resolution_text.setText("Screen resolution:")
-
-        self.ui.brightness_value_text.setText("-- %")
-        self.ui.volume_value_text.setText("-- %")
-
-        self.ui.volume_slider_show_checkbox.setChecked(False)
-
     def update_connection_state(self) -> None:
         """
         Updates the connection state UI elements based on the current connection status.
@@ -277,7 +258,7 @@ class GeneralTab:
 
         if self.connection.connected:
             self.connection.disconnect_device()
-            self.reset_ui()
+            self.parent.reset_ui()
             self.parent.log("Disconnected from the device.", 1)
 
         else:
