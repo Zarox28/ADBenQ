@@ -72,6 +72,24 @@ class Device:
         """
         device.shell(f"am start {link}")
 
+    def turn_off(self, device) -> None:
+        """
+        Turn off the device.
+
+        Args:
+            device: The device object to turn off.
+        """
+        device.shell("reboot -p")
+
+    def reboot(self, device) -> None:
+        """
+        Reboot the device.
+
+        Args:
+            device: The device object to reboot.
+        """
+        device.shell("reboot")
+
     def __init__(self, ui):
         """
         Initialize the Device with UI components.

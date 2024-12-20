@@ -230,6 +230,28 @@ class GeneralTab:
         self.connection.connected_device.open_settings(self.connection.device)
         self.parent.log("Opening settings...", 1)
 
+    def turn_off(self) -> None:
+        """
+        Turns off the connected device.
+        """
+        self.connection.connected_device.turn_off(self.connection.device)
+
+        self.connection.disconnect_device()
+        self.parent.reset_ui()
+
+        self.parent.log("Turning off device...", 1)
+
+    def reboot(self) -> None:
+        """
+        Reboots the connected device.
+        """
+        self.connection.connected_device.reboot(self.connection.device)
+
+        self.connection.disconnect_device()
+        self.parent.reset_ui()
+
+        self.parent.log("Rebooting device...", 1)
+
     def connect_to_device(self) -> None:
         """
         Connects to a device using the IP address provided in the input field.
@@ -279,6 +301,8 @@ class GeneralTab:
         self.ui.screenshot_button.clicked.connect(self.take_screenshot)
         self.ui.scrcpy_button.clicked.connect(self.open_scrcpy)
         self.ui.settings_button.clicked.connect(self.open_settings)
+        self.ui.turn_off_button.clicked.connect(self.turn_off)
+        self.ui.reboot_button.clicked.connect(self.reboot)
 
         # Slider connections
         self.ui.volume_slider.valueChanged.connect(self.set_volume)
