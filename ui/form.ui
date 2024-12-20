@@ -402,6 +402,19 @@
            <item>
             <layout class="QVBoxLayout" name="footer_left_container">
              <item>
+              <spacer name="vertical_spacer_6">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="battery_container">
                <property name="topMargin">
                 <number>0</number>
@@ -436,36 +449,6 @@
                 <widget class="QPushButton" name="reset_battery_button">
                  <property name="text">
                   <string>Reset</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="link_container">
-               <item>
-                <widget class="QLineEdit" name="link_input">
-                 <property name="focusPolicy">
-                  <enum>Qt::FocusPolicy::ClickFocus</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                 <property name="placeholderText">
-                  <string>URL</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="link_button">
-                 <property name="focusPolicy">
-                  <enum>Qt::FocusPolicy::TabFocus</enum>
-                 </property>
-                 <property name="text">
-                  <string>Open</string>
                  </property>
                 </widget>
                </item>
@@ -625,6 +608,58 @@
        <string>Media</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="2">
+        <spacer name="horizontal_spacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0">
+        <spacer name="horizontal_spacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1">
+        <spacer name="vertical_spacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="1">
+        <spacer name="vertical_spacer_4">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="1" column="1">
         <layout class="QGridLayout" name="buttons_container">
          <item row="1" column="0">
@@ -805,57 +840,35 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="0">
-        <spacer name="horizontal_spacer_2">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="1">
-        <spacer name="vertical_spacer_3">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontal_spacer_3">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="2" column="1">
-        <spacer name="vertical_spacer_4">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
+        <layout class="QHBoxLayout" name="link_container">
+         <item>
+          <widget class="QLineEdit" name="link_input">
+           <property name="focusPolicy">
+            <enum>Qt::FocusPolicy::ClickFocus</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>URL</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="link_button">
+           <property name="focusPolicy">
+            <enum>Qt::FocusPolicy::TabFocus</enum>
+           </property>
+           <property name="text">
+            <string>Open</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

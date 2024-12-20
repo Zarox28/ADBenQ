@@ -1,5 +1,5 @@
 # ----- IMPORTS -----
-
+import re
 
 # ----- MEDIA TAB -----
 class MediaTab:
@@ -45,6 +45,21 @@ class MediaTab:
         """
         self.connection.connected_device.media.press_pause(self.connection.device)
 
+    def open_link(self) -> None:
+        """
+        Opens a link on the connected device based on the input field value.
+        """
+        link = self.ui.link_input.text()
+
+        link_pattern = re.compile(r"https?://\S+")
+
+        if not link_pattern.match(link):
+            self.parent.log("Please provide a valid link", 0)
+            return
+
+        self.connection.connected_device.open_link(self.connection.device, link)
+        self.parent.log("Opening link...", 1)
+
     def __init__(self, parent, ui, connection) -> None:
         """
         Initializes the media tab and sets up the UI and connections.
@@ -65,3 +80,4 @@ class MediaTab:
         self.ui.enter_button.clicked.connect(self.press_enter)
         self.ui.back_button.clicked.connect(self.press_back)
         self.ui.pause_button.clicked.connect(self.press_pause)
+        self.ui.link_button.clicked.connect(self.open_link)

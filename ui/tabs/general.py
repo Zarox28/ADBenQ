@@ -1,5 +1,4 @@
 # ----- IMPORTS -----
-import re
 import socket
 
 
@@ -264,21 +263,6 @@ class GeneralTab:
         self.connection.connected_device.open_settings(self.connection.device)
         self.parent.log("Opening settings...", 1)
 
-    def open_link(self) -> None:
-        """
-        Opens a link on the connected device based on the input field value.
-        """
-        link = self.ui.link_input.text()
-
-        link_pattern = re.compile(r"https?://\S+")
-
-        if not link_pattern.match(link):
-            self.parent.log("Please provide a valid link", 0)
-            return
-
-        self.connection.connected_device.open_link(self.connection.device, link)
-        self.parent.log("Opening link...", 1)
-
     def connect_to_device(self) -> None:
         """
         Connects to a device using the IP address provided in the input field.
@@ -331,7 +315,6 @@ class GeneralTab:
         self.ui.scrcpy_button.clicked.connect(self.open_scrcpy)
         self.ui.refresh_button.clicked.connect(self.refresh)
         self.ui.settings_button.clicked.connect(self.open_settings)
-        self.ui.link_button.clicked.connect(self.open_link)
 
         # Slider connections
         self.ui.volume_slider.valueChanged.connect(self.set_volume)

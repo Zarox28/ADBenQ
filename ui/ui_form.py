@@ -226,6 +226,10 @@ class Ui_ADBenQ(object):
         self.footer_container.setObjectName(u"footer_container")
         self.footer_left_container = QVBoxLayout()
         self.footer_left_container.setObjectName(u"footer_left_container")
+        self.vertical_spacer_6 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.footer_left_container.addItem(self.vertical_spacer_6)
+
         self.battery_container = QHBoxLayout()
         self.battery_container.setObjectName(u"battery_container")
         self.battery_container.setContentsMargins(-1, 0, -1, -1)
@@ -249,24 +253,6 @@ class Ui_ADBenQ(object):
 
 
         self.footer_left_container.addLayout(self.battery_container)
-
-        self.link_container = QHBoxLayout()
-        self.link_container.setObjectName(u"link_container")
-        self.link_input = QLineEdit(self.general_tab)
-        self.link_input.setObjectName(u"link_input")
-        self.link_input.setFocusPolicy(Qt.FocusPolicy.ClickFocus)
-        self.link_input.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.link_container.addWidget(self.link_input)
-
-        self.link_button = QPushButton(self.general_tab)
-        self.link_button.setObjectName(u"link_button")
-        self.link_button.setFocusPolicy(Qt.FocusPolicy.TabFocus)
-
-        self.link_container.addWidget(self.link_button)
-
-
-        self.footer_left_container.addLayout(self.link_container)
 
 
         self.footer_container.addLayout(self.footer_left_container)
@@ -367,6 +353,22 @@ class Ui_ADBenQ(object):
         self.media_tab.setEnabled(False)
         self.gridLayout_2 = QGridLayout(self.media_tab)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.horizontal_spacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_2.addItem(self.horizontal_spacer_3, 1, 2, 1, 1)
+
+        self.horizontal_spacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_2.addItem(self.horizontal_spacer_2, 1, 0, 1, 1)
+
+        self.vertical_spacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_2.addItem(self.vertical_spacer_3, 0, 1, 1, 1)
+
+        self.vertical_spacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_2.addItem(self.vertical_spacer_4, 3, 1, 1, 1)
+
         self.buttons_container = QGridLayout()
         self.buttons_container.setObjectName(u"buttons_container")
         self.left_button = QPushButton(self.media_tab)
@@ -454,21 +456,23 @@ class Ui_ADBenQ(object):
 
         self.gridLayout_2.addLayout(self.buttons_container, 1, 1, 1, 1)
 
-        self.horizontal_spacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.link_container = QHBoxLayout()
+        self.link_container.setObjectName(u"link_container")
+        self.link_input = QLineEdit(self.media_tab)
+        self.link_input.setObjectName(u"link_input")
+        self.link_input.setFocusPolicy(Qt.FocusPolicy.ClickFocus)
+        self.link_input.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_2.addItem(self.horizontal_spacer_2, 1, 0, 1, 1)
+        self.link_container.addWidget(self.link_input)
 
-        self.vertical_spacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.link_button = QPushButton(self.media_tab)
+        self.link_button.setObjectName(u"link_button")
+        self.link_button.setFocusPolicy(Qt.FocusPolicy.TabFocus)
 
-        self.gridLayout_2.addItem(self.vertical_spacer_3, 0, 1, 1, 1)
+        self.link_container.addWidget(self.link_button)
 
-        self.horizontal_spacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_2.addItem(self.horizontal_spacer_3, 1, 2, 1, 1)
-
-        self.vertical_spacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_2.addItem(self.vertical_spacer_4, 2, 1, 1, 1)
+        self.gridLayout_2.addLayout(self.link_container, 2, 1, 1, 1)
 
         self.tabs.addTab(self.media_tab, "")
         self.apps_tab = QWidget()
@@ -519,9 +523,6 @@ class Ui_ADBenQ(object):
         self.battery_input.setPlaceholderText(QCoreApplication.translate("ADBenQ", u"Battery level", None))
         self.set_battery_button.setText(QCoreApplication.translate("ADBenQ", u"Set", None))
         self.reset_battery_button.setText(QCoreApplication.translate("ADBenQ", u"Reset", None))
-        self.link_input.setText("")
-        self.link_input.setPlaceholderText(QCoreApplication.translate("ADBenQ", u"URL", None))
-        self.link_button.setText(QCoreApplication.translate("ADBenQ", u"Open", None))
         self.brightness_label.setText(QCoreApplication.translate("ADBenQ", u"Brightness", None))
         self.brightness_value_text.setText(QCoreApplication.translate("ADBenQ", u"-- %", None))
         self.volume_label.setText(QCoreApplication.translate("ADBenQ", u"Volume", None))
@@ -535,6 +536,9 @@ class Ui_ADBenQ(object):
         self.down_button.setText("")
         self.enter_button.setText("")
         self.up_button.setText("")
+        self.link_input.setText("")
+        self.link_input.setPlaceholderText(QCoreApplication.translate("ADBenQ", u"URL", None))
+        self.link_button.setText(QCoreApplication.translate("ADBenQ", u"Open", None))
         self.tabs.setTabText(self.tabs.indexOf(self.media_tab), QCoreApplication.translate("ADBenQ", u"Media", None))
         self.tabs.setTabText(self.tabs.indexOf(self.apps_tab), QCoreApplication.translate("ADBenQ", u"Apps", None))
         self.tabs.setTabText(self.tabs.indexOf(self.activities_tab), QCoreApplication.translate("ADBenQ", u"Activities", None))

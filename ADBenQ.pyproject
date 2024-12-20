@@ -18,6 +18,7 @@
         "ui/form.ui",
         "ui/main_window.py",
         "ui/tabs/general.py",
+        "ui/tabs/media.py",
         "ui/ui_form.py"
     ]
 }
