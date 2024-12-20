@@ -4,20 +4,6 @@ import socket
 
 # ----- GENERAL TAB -----
 class GeneralTab:
-    def refresh(self) -> None:
-        """
-        Refreshes various UI elements by updating battery, volume, brightness, information,
-        screen resolution, and display state.
-        """
-        self.parent.log("Refreshing...", 1)
-
-        self.update_battery()
-        self.update_volume()
-        self.update_brightness()
-        self.update_informations()
-        self.update_screen_resolution()
-        self.update_display_state()
-
     def update_connection_state(self) -> None:
         """
         Updates the connection state UI elements based on the current connection status.
@@ -55,7 +41,7 @@ class GeneralTab:
 
         if is_connected:
             self.ui.ip_input.setText(self.connection.device_ip)
-            self.refresh()
+            self.parent.refresh()
 
     def update_display_state(self) -> None:
         """
@@ -233,9 +219,9 @@ class GeneralTab:
         Opens the SCRCPY application for the connected device.
         """
         if self.connection.connected_device.open_scrcpy(self.connection.device):
-          self.parent.log("Starting SCRCPY...", 1)
+            self.parent.log("Starting SCRCPY...", 1)
         else:
-          self.parent.log("SCRCPY is already running", 0)
+            self.parent.log("SCRCPY is already running", 0)
 
     def open_settings(self) -> None:
         """
@@ -265,7 +251,7 @@ class GeneralTab:
             if self.connection.connect_device(
                 socket.gethostbyname(ip_address) if ip_address else ""
             ):
-                self.refresh()
+                self.parent.refresh()
                 self.parent.log(f"Connected to device at IP: {ip_address}", 1)
             else:
                 self.parent.log(f"Failed to connect to {ip_address}", 0)
@@ -284,8 +270,6 @@ class GeneralTab:
         self.ui = ui
         self.connection = connection
 
-        self.update_connection_state()
-
         # Button connections
         self.ui.set_battery_button.clicked.connect(self.set_battery)
         self.ui.reset_battery_button.clicked.connect(self.reset_battery)
@@ -294,7 +278,6 @@ class GeneralTab:
         self.ui.reset_screen_button.clicked.connect(self.reset_screen_resolution)
         self.ui.screenshot_button.clicked.connect(self.take_screenshot)
         self.ui.scrcpy_button.clicked.connect(self.open_scrcpy)
-        self.ui.refresh_button.clicked.connect(self.refresh)
         self.ui.settings_button.clicked.connect(self.open_settings)
 
         # Slider connections

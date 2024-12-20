@@ -1,6 +1,7 @@
 # ----- IMPORTS -----
 import re
 
+
 # ----- MEDIA TAB -----
 class MediaTab:
     def press_up(self) -> None:
@@ -67,6 +68,7 @@ class MediaTab:
         Args:
             parent: The parent widget of the media tab.
             ui: The user interface associated with the media tab.
+            connection: The connection object.
         """
         self.parent = parent
         self.ui = ui

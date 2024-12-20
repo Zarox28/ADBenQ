@@ -65,6 +65,13 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="refresh_button">
+       <property name="text">
+        <string>Refresh</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item row="0" column="0">
@@ -132,13 +139,6 @@
              </property>
              <property name="text">
               <string>Screenshot</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="refresh_button">
-             <property name="text">
-              <string>Refresh</string>
              </property>
             </widget>
            </item>
