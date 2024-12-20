@@ -27,8 +27,17 @@
     <normaloff>src/icon.png</normaloff>src/icon.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="bottomMargin">
+    <number>8</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>8</number>
+   </property>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="state_container">
+     <property name="spacing">
+      <number>-1</number>
+     </property>
      <item>
       <widget class="QLabel" name="state_text">
        <property name="text">

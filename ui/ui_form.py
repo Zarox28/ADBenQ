@@ -33,7 +33,12 @@ class Ui_ADBenQ(object):
         ADBenQ.setWindowIcon(icon)
         self.gridLayout = QGridLayout(ADBenQ)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setVerticalSpacing(8)
+        self.gridLayout.setContentsMargins(-1, -1, -1, 8)
         self.state_container = QHBoxLayout()
+#ifndef Q_OS_MAC
+        self.state_container.setSpacing(-1)
+#endif
         self.state_container.setObjectName(u"state_container")
         self.state_text = QLabel(ADBenQ)
         self.state_text.setObjectName(u"state_text")
