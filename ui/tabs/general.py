@@ -1,43 +1,9 @@
 # ----- IMPORTS -----
-import re
 import socket
 
 
 # ----- GENERAL TAB -----
 class GeneralTab:
-    def refresh(self) -> None:
-        """
-        Refreshes various UI elements by updating battery, volume, brightness, information,
-        screen resolution, and display state.
-        """
-        self.parent.log("Refreshing...", 1)
-
-        self.update_battery()
-        self.update_volume()
-        self.update_brightness()
-        self.update_informations()
-        self.update_screen_resolution()
-        self.update_display_state()
-
-    def reset_ui(self) -> None:
-        """
-        Resets the UI elements to their default state.
-        """
-        self.ui.battery_input.clear()
-        self.ui.link_input.clear()
-        self.ui.width_input.clear()
-        self.ui.height_input.clear()
-
-        self.ui.device_name_text.setText("Name:")
-        self.ui.device_model_text.setText("Model:")
-        self.ui.device_version_text.setText("Android version:")
-        self.ui.device_screen_resolution_text.setText("Screen resolution:")
-
-        self.ui.brightness_value_text.setText("-- %")
-        self.ui.volume_value_text.setText("-- %")
-
-        self.ui.volume_slider_show_checkbox.setChecked(False)
-
     def update_connection_state(self) -> None:
         """
         Updates the connection state UI elements based on the current connection status.
@@ -75,7 +41,7 @@ class GeneralTab:
 
         if is_connected:
             self.ui.ip_input.setText(self.connection.device_ip)
-            self.refresh()
+            self.parent.refresh()
 
     def update_display_state(self) -> None:
         """
@@ -253,9 +219,9 @@ class GeneralTab:
         Opens the SCRCPY application for the connected device.
         """
         if self.connection.connected_device.open_scrcpy(self.connection.device):
-          self.parent.log("Starting SCRCPY...", 1)
+            self.parent.log("Starting SCRCPY...", 1)
         else:
-          self.parent.log("SCRCPY is already running", 0)
+            self.parent.log("SCRCPY is already running", 0)
 
     def open_settings(self) -> None:
         """
@@ -264,20 +230,27 @@ class GeneralTab:
         self.connection.connected_device.open_settings(self.connection.device)
         self.parent.log("Opening settings...", 1)
 
-    def open_link(self) -> None:
+    def turn_off(self) -> None:
         """
-        Opens a link on the connected device based on the input field value.
+        Turns off the connected device.
         """
-        link = self.ui.link_input.text()
+        self.connection.connected_device.turn_off(self.connection.device)
 
-        link_pattern = re.compile(r"https?://\S+")
+        self.connection.disconnect_device()
+        self.parent.reset_ui()
 
-        if not link_pattern.match(link):
-            self.parent.log("Please provide a valid link", 0)
-            return
+        self.parent.log("Turning off device...", 1)
 
-        self.connection.connected_device.open_link(self.connection.device, link)
-        self.parent.log("Opening link...", 1)
+    def reboot(self) -> None:
+        """
+        Reboots the connected device.
+        """
+        self.connection.connected_device.reboot(self.connection.device)
+
+        self.connection.disconnect_device()
+        self.parent.reset_ui()
+
+        self.parent.log("Rebooting device...", 1)
 
     def connect_to_device(self) -> None:
         """
@@ -293,14 +266,14 @@ class GeneralTab:
 
         if self.connection.connected:
             self.connection.disconnect_device()
-            self.reset_ui()
+            self.parent.reset_ui()
             self.parent.log("Disconnected from the device.", 1)
 
         else:
             if self.connection.connect_device(
                 socket.gethostbyname(ip_address) if ip_address else ""
             ):
-                self.refresh()
+                self.parent.refresh()
                 self.parent.log(f"Connected to device at IP: {ip_address}", 1)
             else:
                 self.parent.log(f"Failed to connect to {ip_address}", 0)
@@ -319,8 +292,6 @@ class GeneralTab:
         self.ui = ui
         self.connection = connection
 
-        self.update_connection_state()
-
         # Button connections
         self.ui.set_battery_button.clicked.connect(self.set_battery)
         self.ui.reset_battery_button.clicked.connect(self.reset_battery)
@@ -329,9 +300,9 @@ class GeneralTab:
         self.ui.reset_screen_button.clicked.connect(self.reset_screen_resolution)
         self.ui.screenshot_button.clicked.connect(self.take_screenshot)
         self.ui.scrcpy_button.clicked.connect(self.open_scrcpy)
-        self.ui.refresh_button.clicked.connect(self.refresh)
         self.ui.settings_button.clicked.connect(self.open_settings)
-        self.ui.link_button.clicked.connect(self.open_link)
+        self.ui.turn_off_button.clicked.connect(self.turn_off)
+        self.ui.reboot_button.clicked.connect(self.reboot)
 
         # Slider connections
         self.ui.volume_slider.valueChanged.connect(self.set_volume)
