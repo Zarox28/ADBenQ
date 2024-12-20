@@ -525,7 +525,7 @@ class Ui_ADBenQ(object):
     # setupUi
 
     def retranslateUi(self, ADBenQ):
-        ADBenQ.setWindowTitle(QCoreApplication.translate("ADBenQ", u"ADBenQ - v0.2.1-alpha", None))
+        ADBenQ.setWindowTitle(QCoreApplication.translate("ADBenQ", u"ADBenQ - v0.2.2-alpha", None))
         self.state_text.setText(QCoreApplication.translate("ADBenQ", u"<html><head/><body><p><span style=\" color:#ffffff;\">State:</span><span style=\" color:#ff2600;\"> disconnected</span></p></body></html>", None))
         self.log_text.setText("")
         self.refresh_button.setText(QCoreApplication.translate("ADBenQ", u"Refresh", None))
