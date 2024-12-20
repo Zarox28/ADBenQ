@@ -8,7 +8,8 @@ class Battery:
         """
         Initializes the Battery class with a UI component.
 
-        :param ui: The UI component to interact with.
+        Args:
+            ui: The UI object to interact with.
         """
         self.ui = ui
 
@@ -16,8 +17,11 @@ class Battery:
         """
         Retrieves the current battery level of the device.
 
-        :param device: The device to get the battery level from.
-        :return: The current battery level as an integer.
+        Args:
+            device: The device to get the battery level from.
+
+        Returns:
+            int: The battery level as an integer.
         """
         return device.get_battery_level()
 
@@ -25,8 +29,9 @@ class Battery:
         """
         Sets the battery level of the device to a specified value.
 
-        :param device: The device to set the battery level on.
-        :param level: The battery level to set, as an integer.
+        Args:
+            device: The device to set the battery level on.
+            level: The battery level to set as an integer.
         """
         device.shell(f"dumpsys battery set level {level}")
 
@@ -34,6 +39,7 @@ class Battery:
         """
         Resets the battery level of the device to its default state.
 
-        :param device: The device to reset the battery level on.
+        Args:
+            device: The device to reset the battery level on.
         """
         device.shell("cmd battery reset -f")
