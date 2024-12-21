@@ -26,11 +26,12 @@ class GeneralTab:
             self.ui.screen_group,
             self.ui.brightness_slider,
             self.ui.volume_slider,
+            self.ui.volume_slider_show_checkbox,
             self.ui.battery_input,
             self.ui.set_battery_button,
             self.ui.reset_battery_button,
-            self.ui.link_button,
-            self.ui.link_input,
+            self.ui.turn_off_button,
+            self.ui.reboot_button,
         ]
 
         for widget in widgets:
